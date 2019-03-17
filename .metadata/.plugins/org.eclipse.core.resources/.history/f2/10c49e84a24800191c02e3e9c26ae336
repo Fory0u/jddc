@@ -1,0 +1,6 @@
+package com.neusoft.vo;
+
+public class Cl {
+	private String CId;
+	private String CCl;
+}

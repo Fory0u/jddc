@@ -1,0 +1,435 @@
+!SESSION 2019-03-12 21:25:15.463 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -data E:\东软实训\bishe -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:21.995
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\css_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.075
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\forms_lists_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.100
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\htmlform_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.127
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.142
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\html\javascript_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.325
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_f_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.347
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\jsf_h_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.383
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_bean_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.417
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_html_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.439
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_logic_snippets.xml
+
+!ENTRY com.genuitec.eclipse.wizards 1 0 2019-03-12 21:25:22.464
+!MESSAGE Installed snippet library: E:\myeclipse\MyEclipse 10\configuration\org.eclipse.osgi\bundles\134\1\.cp\snippets\jsp\struts_tiles_snippets.xml
+
+!ENTRY org.eclipse.osgi 2 0 2019-03-12 21:28:08.323
+!MESSAGE While loading class "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16", thread "Thread[Worker-3,5,main]" timed out waiting (5001ms) for thread "Thread[Worker-10,5,main]" to finish starting bundle "org.eclipse.wst.jsdt.core_1.1.100.me201207241813 [984]". To avoid deadlock, thread "Thread[Worker-3,5,main]" is proceeding but "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:/E:/myeclipse/Common/plugins/org.eclipse.wst.jsdt.core_1.1.100.me201207241813.jar" by thread "Worker-10".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 16 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:28:20.245
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.flow.UnconditionalFlowInfo.getLocalID(UnconditionalFlowInfo.java:1722)
+	at org.eclipse.wst.jsdt.internal.compiler.flow.UnconditionalFlowInfo.markAsDefinitelyAssigned(UnconditionalFlowInfo.java:1161)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:79)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:109)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.ReturnStatement.analyseCode(ReturnStatement.java:43)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:155)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.process(Compiler.java:630)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.compile(Compiler.java:376)
+	at org.eclipse.wst.jsdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:307)
+	at org.eclipse.wst.jsdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:86)
+	at org.eclipse.wst.jsdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:232)
+	at org.eclipse.wst.jsdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:58)
+	at org.eclipse.wst.jsdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:291)
+	at org.eclipse.wst.jsdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:194)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:29:27.854
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.wst.jsdt.internal.compiler.flow.UnconditionalFlowInfo.getLocalID(UnconditionalFlowInfo.java:1722)
+	at org.eclipse.wst.jsdt.internal.compiler.flow.UnconditionalFlowInfo.markAsDefinitelyAssigned(UnconditionalFlowInfo.java:1161)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.MethodDeclaration.analyseCode(MethodDeclaration.java:79)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.AbstractMethodDeclaration.analyseCode(AbstractMethodDeclaration.java:109)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.FunctionExpression.analyseCode(FunctionExpression.java:73)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.ReturnStatement.analyseCode(ReturnStatement.java:43)
+	at org.eclipse.wst.jsdt.internal.compiler.ast.CompilationUnitDeclaration.analyseCode(CompilationUnitDeclaration.java:155)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.process(Compiler.java:630)
+	at org.eclipse.wst.jsdt.internal.compiler.Compiler.compile(Compiler.java:376)
+	at org.eclipse.wst.jsdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:307)
+	at org.eclipse.wst.jsdt.internal.core.builder.BatchImageBuilder.compile(BatchImageBuilder.java:86)
+	at org.eclipse.wst.jsdt.internal.core.builder.AbstractImageBuilder.compile(AbstractImageBuilder.java:232)
+	at org.eclipse.wst.jsdt.internal.core.builder.BatchImageBuilder.build(BatchImageBuilder.java:58)
+	at org.eclipse.wst.jsdt.internal.core.builder.JavaBuilder.buildAll(JavaBuilder.java:291)
+	at org.eclipse.wst.jsdt.internal.core.builder.JavaBuilder.build(JavaBuilder.java:199)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:728)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:199)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:239)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:292)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:295)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:351)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:374)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:143)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:241)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:29:32.380
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:29:32.928
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:29:32.928
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:29:37.676
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:29:37.682
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:29:37.683
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:30:58.291
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:30:58.329
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:30:58.329
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:34:18.208
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:34:18.453
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:34:18.453
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:34:23.188
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:34:23.195
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:34:23.195
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:35:05.628
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:35:05.850
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:35:05.850
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:35:10.585
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:35:10.591
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:35:10.591
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:36:35.793
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:36:35.999
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:36:35.999
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:36:40.642
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:36:40.648
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:36:40.648
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:38:18.916
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:38:19.228
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:38:19.228
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:38:24.098
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:38:24.103
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:38:24.103
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 2 2019-03-12 21:40:31.182
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.core.resources 4 75 2019-03-12 21:40:31.221
+!MESSAGE Errors occurred during the build.
+!SUBENTRY 1 org.eclipse.wst.jsdt.core 4 75 2019-03-12 21:40:31.221
+!MESSAGE Errors running builder 'JavaScript Validator' on project 'jddc'.
+!STACK 0
+java.lang.NullPointerException
+
+!ENTRY org.eclipse.ui 4 4 2019-03-12 21:42:43.996
+!MESSAGE Part already exists in page layout: org.eclipse.debug.ui.ExpressionView.
+!SESSION 2019-03-12 21:50:34.686 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.osgi 2 0 2019-03-12 21:50:52.435
+!MESSAGE While loading class "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16", thread "Thread[Worker-3,5,main]" timed out waiting (5001ms) for thread "Thread[Worker-4,5,main]" to finish starting bundle "org.eclipse.wst.jsdt.core_1.1.100.me201207241813 [984]". To avoid deadlock, thread "Thread[Worker-3,5,main]" is proceeding but "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:/E:/myeclipse/Common/plugins/org.eclipse.wst.jsdt.core_1.1.100.me201207241813.jar" by thread "Worker-4".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 16 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2019-03-17 15:16:48.933 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-03-17 15:16:56.688
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 0 2019-03-17 15:17:17.869
+!MESSAGE While loading class "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16", thread "Thread[Worker-7,5,main]" timed out waiting (5002ms) for thread "Thread[Worker-5,5,main]" to finish starting bundle "org.eclipse.wst.jsdt.core_1.1.100.me201207241813 [984]". To avoid deadlock, thread "Thread[Worker-7,5,main]" is proceeding but "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:/E:/myeclipse/Common/plugins/org.eclipse.wst.jsdt.core_1.1.100.me201207241813.jar" by thread "Worker-5".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 16 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SESSION 2019-03-17 17:52:39.559 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_13
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.osgi 2 0 2019-03-17 17:53:00.642
+!MESSAGE While loading class "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16", thread "Thread[Worker-2,5,main]" timed out waiting (5002ms) for thread "Thread[Worker-3,5,main]" to finish starting bundle "org.eclipse.wst.jsdt.core_1.1.100.me201207241813 [984]". To avoid deadlock, thread "Thread[Worker-2,5,main]" is proceeding but "org.eclipse.wst.jsdt.internal.core.JavaModelManager$16" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: State change in progress for bundle "reference:file:/E:/myeclipse/Common/plugins/org.eclipse.wst.jsdt.core_1.1.100.me201207241813.jar" by thread "Worker-3".
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	... 16 more
+Root exception:
+org.eclipse.osgi.framework.internal.core.AbstractBundle$BundleStatusException
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.beginStateChange(AbstractBundle.java:1087)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.start(AbstractBundle.java:297)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:440)
+	at org.eclipse.osgi.internal.loader.BundleLoader.setLazyTrigger(BundleLoader.java:268)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.baseadaptor.loader.ClasspathManager.findLocalClass(ClasspathManager.java:463)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.findLocalClass(DefaultClassLoader.java:216)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:400)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:476)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:429)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:417)
+	at org.eclipse.osgi.internal.baseadaptor.DefaultClassLoader.loadClass(DefaultClassLoader.java:107)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:252)
+	at java.lang.ClassLoader.loadClassInternal(ClassLoader.java:320)
+	at org.eclipse.wst.jsdt.internal.core.JavaModelManager$15.run(JavaModelManager.java:4182)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

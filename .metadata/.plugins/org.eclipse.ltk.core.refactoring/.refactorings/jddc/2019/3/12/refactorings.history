@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.neusoft.vo.Orders&apos; to &apos;Order&apos;&#x0D;&#x0A;- Original project: &apos;jddc&apos;&#x0D;&#x0A;- Original element: &apos;com.neusoft.vo.Orders&apos;&#x0D;&#x0A;- Renamed element: &apos;com.neusoft.vo.Order&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Orders&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.neusoft.vo{Orders.java[Orders" matchStrategy="1" name="Order" qualified="false" references="true" similarDeclarations="false" stamp="1552817026222" textual="false" version="1.0"/>
+</session>
