@@ -10,7 +10,7 @@ public class User {
 	private String CLoginId;
 	private String CName;
 	private String CPassword;
-	private String NLx;//1管理员 2用户
+	private Integer NLx;//1管理员 2用户
 	public String getCId() {
 		return CId;
 	}
@@ -35,10 +35,10 @@ public class User {
 	public void setCPassword(String cPassword) {
 		CPassword = cPassword;
 	}
-	public String getNLx() {
+	public Integer getNLx() {
 		return NLx;
 	}
-	public void setNLx(String nLx) {
+	public void setNLx(Integer nLx) {
 		NLx = nLx;
 	}
 	public User() {

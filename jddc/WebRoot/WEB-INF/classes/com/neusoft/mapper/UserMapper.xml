@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.neusoft.mapper.UserMapper">
-	<select id="getLogin" parameterType="String" resultType="com.neusoft.vo.User">
-    	select * from t_user where userName=#{loginAcct} and userPwd=#{loginPwd}
+	<resultMap type="com.neusoft.vo.User" id="BaseResultMap">
+		<id column="c_id" property="CId" jdbcType="VARCHAR" />
+   		<result column="c_loginid" property="CLoginId" jdbcType="VARCHAR" />
+   		<result column="c_name" property="CName" jdbcType="VARCHAR" />
+   		<result column="c_password" property="CPassword" jdbcType="VARCHAR" />
+   		<result column="n_lx" property="NLx" jdbcType="INTEGER" />
+	</resultMap>
+	
+	<select id="getLogin" parameterType="String" resultMap="BaseResultMap">
+    	select c_id,c_loginid,c_name,c_password,n_lx from t_user where c_loginid=#{loginid} and c_password = #{loginPwd} 
     </select>
-    <select id="getCheckAccount"  parameterType="String" resultType="int">
-    	select count(1) from t_user where userName=#{userNo}
-    </select>
-	<select id="queryCount" parameterType="map" resultType="int">
-		select count(1) from t_user where 1=1
-		  <if test="userName !=null and userName != ''">
-			 and userName=#{userName}
-		  </if>
-		    <if test="userAgender !=null and userAgender != ''">
-			 and userAgender=#{userAgender}
-		  </if>
-	</select>
-	<select id="getUserList" parameterType="map" resultType="com.neusoft.vo.User">
+    <select id="getUserList" parameterType="map" resultMap="BaseResultMap">
 		 select c.* from 
 	   (select * from t_user
 		where 
@@ -30,37 +26,39 @@
 		  ) c
 	   limit  #{start},#{pagesize}
 	</select>
-	
 	<insert id="addUser" parameterType="map">
-	insert into t_user(userNo,userName,userAge,userAgender,userFlag,userPwd)
-	values(#{userNo},#{userName},#{userAge},#{userAgender},#{userFlag},#{userPwd})
+		insert into t_user(c_id,c_loginid,c_name,c_password,n_lx)
+		values( REPLACE(uuid(),'-',''),#{c_loginid},#{c_name},#{c_password},#{n_lx})
 	</insert>
 	<delete id="deleteUser" parameterType="String">
-		delete from t_user where userNo=#{userNo}
+		delete from t_user where c_id=#{c_id}
 	</delete>
-	<select id="detailUser" parameterType="String" resultType="com.neusoft.vo.User">
-	select * from t_user where userNo=#{userNo}
+	<select id="detailUser" parameterType="String" resultMap="BaseResultMap">
+		select * from t_user where c_id=#{c_id}
 	</select>
 	<update id="editUser" parameterType="map">
-	update t_user set userFlag=#{userFlag},userPwd=#{userPwd},userAge=#{userAge},userAgender=#{userAgender} where userNo=#{userNo}
+		update t_user set c_loginid=#{c_loginid},c_name=#{c_name},c_password=#{c_password},n_lx=#{n_lx} where c_id=#{c_id}
 	</update>
 	
+	
+	
+	
+    <select id="getCheckAccount"  parameterType="String" resultType="int">
+    	select count(1) from t_user where userName=#{userNo}
+    </select>
+	<select id="queryCount" parameterType="map" resultType="int">
+		select count(1) from t_user where 1=1
+		  <if test="userName !=null and userName != ''">
+			 and userName=#{userName}
+		  </if>
+		    <if test="userAgender !=null and userAgender != ''">
+			 and userAgender=#{userAgender}
+		  </if>
+	</select>
 	<select id="queryRecordCount" parameterType="map" resultType="int">
 	  select count(1) from t_user_record where 1=1 
 	   <if test="userNo !=null and userNo != ''">
 			 and userNo=#{userNo}
 		  </if>
-	</select>
-	
-	<select id="getUserRecordList" parameterType="map" resultType="com.neusoft.vo.UserRecord">
-		 select c.* from 
-	   (select tur.userNo,tu.userName,DATE_FORMAT(tur.userDate,'%Y-%m-%d %H:%i:%s') userDate  from t_user_record tur inner join t_user tu on tur.userNo=tu.userNo
-		where 
-	  	 1=1 
-		  <if test="userNo !=null and userNo != ''">
-			 and userNo=#{userNo}
-		  </if>
-		  ) c
-	   limit  #{start},#{pagesize}
 	</select>
 </mapper>

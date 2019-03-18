@@ -29,26 +29,33 @@ public class UserController {
 	    System.out.println(userPwd);
 
 		String flag="";
-		//先判断账号是否存在
-		int count=userService.getCheckAccount(userNo);
-		//在判断密码是否正确 
-		if(count<=0){
-			return "A";
-		}
-		User bgUser=userService.getBgLogin(userNo,userPwd);
-	    if(null==bgUser){
+//		//先判断账号是否存在
+//		int count=userService.getCheckAccount(userNo);
+//		//在判断密码是否正确 
+//		if(count<=0){
+//			return "A";
+//		}
+		User loginUser=userService.getLogin(userNo,userPwd);
+	    if(null==loginUser){
 	    	flag="N";//账号或密码错误
 	    }else{
 	    	flag="Y";
-	    	session.setAttribute("bgUser", bgUser);
+	    	session.setAttribute("loginUser", loginUser);
 	    }
-	    
-	    
 		return flag;
 	}
 	@RequestMapping(params="indexBg")
-	public String indexBg(){
-		return "index";
+	public String indexBg(HttpSession session){
+		User loginUser=(User) session.getAttribute("loginUser");
+		
+		if(loginUser == null){
+			return "login";
+		}else if (loginUser.getNLx() == 1){//管理员
+			return "adminIndex";
+		}else{
+			return "index";
+		}
+		
 	}
 	@RequestMapping(params="welcome")
 	public String welcome(){
@@ -77,36 +84,34 @@ public class UserController {
 		return "usersList";
 	}
 	@RequestMapping(params="addUser")
-	public String addUser(String userName,String userAge,String userAgender,String adminFlag,String userPwd){
+	public String addUser(String loginid ,String userName,Integer adminFlag,String userPwd){
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("userNo", CodeUtil.getCodeStr(4));
-		map.put("userName", userName);
-		map.put("userPwd", userPwd);
-		map.put("userAge", userAge);
-		map.put("userAgender", userAgender);
-		map.put("userFlag", adminFlag);
+		map.put("c_loginid",loginid);
+		map.put("c_name", userName);
+		map.put("c_password", userPwd);
+		map.put("n_lx", adminFlag);
 		userService.addUser(map);
 		return "redirect:user.do?listUser";
 	}
 	@RequestMapping(params="deleteUser")
-	public String deleteUser(String userNo){
-		userService.deleteUser(userNo);
+	public String deleteUser(String cid){
+		userService.deleteUser(cid);
 		return "redirect:user.do?listUser";
 	}
 	@RequestMapping(params="detailUser")
-	public String detailUser(String userNo,HttpServletRequest request){
-		User user=userService.detailUser(userNo);
+	public String detailUser(String cid,HttpServletRequest request){
+		User user=userService.detailUser(cid);
 		request.setAttribute("user", user);
 		return "user-edit";
 	}
 	@RequestMapping(params="editUser")
-	public String editUser(String userNo,String userAge,String userAgender,String adminFlag,String userPwd){
+	public String editUser(String cid,String loginid,String userName,String adminFlag,String userPwd){
 		Map<String, Object> map=new HashMap<String, Object>();
-		map.put("userNo", userNo);
-		map.put("userPwd", userPwd);
-		map.put("userAge", userAge);
-		map.put("userAgender", userAgender);
-		map.put("userFlag", adminFlag);
+		map.put("c_id",cid);
+		map.put("c_loginid",loginid);
+		map.put("c_name", userName);
+		map.put("c_password", userPwd);
+		map.put("n_lx", adminFlag);
 		userService.editUser(map);
 		return "redirect:user.do?listUser";
 	}

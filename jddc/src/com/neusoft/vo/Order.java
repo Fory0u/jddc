@@ -8,10 +8,38 @@ import java.sql.Date;
  */
 public class Order {
 	private String CId;
-	private String CUser;
-	private String CDcxx;
-	private Date DCjsj;
-	private float NZj;
+	private String CUser;//点菜人
+	private String CCzmc;//餐桌名称
+	private String CDcxx;//点菜信息
+	private Integer NDcsl;//点菜数量
+	private float NZj;//总价
+	private Integer NZs;//总数
+	private String CDdzt;//订单状态
+	private Date DCjsj;//创建时间
+	public String getCCzmc() {
+		return CCzmc;
+	}
+	public void setCCzmc(String cCzmc) {
+		CCzmc = cCzmc;
+	}
+	public Integer getNDcsl() {
+		return NDcsl;
+	}
+	public void setNDcsl(Integer nDcsl) {
+		NDcsl = nDcsl;
+	}
+	public Integer getNZs() {
+		return NZs;
+	}
+	public void setNZs(Integer nZs) {
+		NZs = nZs;
+	}
+	public String getCDdzt() {
+		return CDdzt;
+	}
+	public void setCDdzt(String cDdzt) {
+		CDdzt = cDdzt;
+	}
 	public float getNZj() {
 		return NZj;
 	}

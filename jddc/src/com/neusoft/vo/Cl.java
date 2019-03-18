@@ -6,7 +6,7 @@ package com.neusoft.vo;
  */
 public class Cl {
 	private String CId;
-	private String CCl;
+	private String CCl;//菜类
 	public String getCId() {
 		return CId;
 	}

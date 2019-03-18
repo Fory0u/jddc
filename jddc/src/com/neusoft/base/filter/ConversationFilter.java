@@ -82,7 +82,7 @@ public class ConversationFilter implements Filter {
 				return false;
 			}else{
 				 HttpSession session = req.getSession(true);
-				User loginCustomer = (User)session.getAttribute("bgUser");
+				User loginCustomer = (User)session.getAttribute("loginUser");
 				if(null == loginCustomer){
 					return true;
 				}

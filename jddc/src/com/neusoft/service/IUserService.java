@@ -3,13 +3,15 @@ package com.neusoft.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.neusoft.vo.User;
 
 public interface IUserService {
 
-	int getCheckAccount(String userNo);
+//	int getCheckAccount(String userNo);
 
-	User getBgLogin(String userNo, String userPwd);
+	User getLogin(String loginid,String loginPwd);
 
 	int queryCount(Map<String, Object> map);
 
@@ -18,13 +20,14 @@ public interface IUserService {
 
 	void addUser(Map<String, Object> map);
 
-	void deleteUser(String userNo);
+	void deleteUser(String cid);
 
-	User detailUser(String userNo);
+	User detailUser(String cid);
 
 	void editUser(Map<String, Object> map);
 
 	int queryRecordCount(Map<String, Object> map);
-
+	
+	
 
 }

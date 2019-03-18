@@ -10,7 +10,7 @@ import com.neusoft.vo.User;
 
 public interface UserMapper {
 
-	User getLogin(@Param(value="loginAcct")String loginAcct,@Param(value="loginPwd")String loginPwd);
+	User getLogin(@Param(value="loginid")String loginid,@Param(value="loginPwd")String loginPwd);
 
 	int getCheckAccount(String userNo);
 
@@ -20,11 +20,13 @@ public interface UserMapper {
 
 	void addUser(Map<String, Object> map);
 
-	void deleteUser(String userNo);
+	void deleteUser(@Param(value="c_id")String cid);
 
-	User detailUser(String userNo);
+	User detailUser(@Param(value="c_id")String cid);
 
 	void editUser(Map<String, Object> map);
 
 	int queryRecordCount(Map<String, Object> map);
+	
+	
 }

@@ -6,9 +6,9 @@ package com.neusoft.vo;
  */
 public class Cd {
 	private String CId;
-	private String CCdmc;
-	private float FJg;
-	private String CCl;
+	private String CCdmc;//菜名
+	private float FJg;//价格
+	private String CCl;//菜类
 	public Cd() {
 		super();
 		// TODO Auto-generated constructor stub

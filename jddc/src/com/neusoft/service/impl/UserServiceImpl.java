@@ -18,14 +18,14 @@ public class UserServiceImpl implements IUserService{
 
 	@Autowired
 	private UserMapper userMapper;
-	@Override
-	public int getCheckAccount(String userNo) {
-		return userMapper.getCheckAccount(userNo);
-	}
+//	@Override
+//	public int getCheckAccount(String userNo) {
+//		return userMapper.getCheckAccount(userNo);
+//	}
 
 	@Override
-	public User getBgLogin(String userNo, String userPwd) {
-		return userMapper.getLogin(userNo, userPwd);
+	public	User getLogin(String loginid,String loginPwd) {
+		return userMapper.getLogin(loginid, loginPwd);
 	}
 
 	@Override

@@ -12,8 +12,8 @@
 		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd 
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
-
-<bean id="IUserService" class="com.neusoft.service.impl.UserServiceImpl"></bean>
-
-<bean id="IConsumeService" class="com.neusoft.service.impl.ConsumeServiceImpl"></bean>
+		
+		<bean id="IUserService" class="com.neusoft.service.impl.UserServiceImpl"></bean>
+		
+		<!-- <bean id="IConsumeService" class="com.neusoft.service.impl.ConsumeServiceImpl"></bean> -->
 </beans>
