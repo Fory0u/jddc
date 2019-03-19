@@ -3,15 +3,15 @@ package com.neusoft.mapper;
 import java.util.List;
 import java.util.Map;
 
-import com.neusoft.vo.Cz;
+import com.neusoft.vo.Order;
 
 public interface OrderMapper {
-	Cz getCzById(String cid);
-	List<Cz> getAllCz();
+	Order getOrderById(String cid);
+	List<Order> getAllOrder();
 	
-	int editCz(Map<String, Object> map);
+	int editOrder(Map<String, Object> map);
 	
-	int addCz(Map<String, Object> map);
+	int addOrder(Map<String, Object> map);
 
-	int deleteCz(String cid);
+	int deleteOrder(String cid);
 }
