@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neusoft.mapper.CdMapper">
+	<resultMap type="com.neusoft.vo.Cd" id="BaseResultMap">
+		<id column="c_id" property="CId" jdbcType="VARCHAR" />
+   		<result column="c_cdmc" property="CCdmc" jdbcType="VARCHAR" />
+   		<result column="f_jg" property="FJg" jdbcType="FLOAT" />
+   		<result column="c_cl" property="CCl" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getCdById" parameterType="String" resultMap="BaseResultMap">
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
+		<where>
+			<if test="cid != null and cid.length()>0">
+				and c_id = #{cid}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getAllCd" resultMap="BaseResultMap">
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
+	</select>
+	
+	<insert id="addCd" parameterType="map">
+		INSERT INTO `jddc`.`t_cd`(`c_id`, `c_cdmc`, `f_jg`, `c_cl`) 
+		VALUES (REPLACE(uuid(),'-',''), #{map.cdmc}, #{map.jg,jdbcType=FLOAT}, (select c_id from t_cl where c_cl = #{map.cdmc}))
+	</insert>
+	<delete id="deleteCd" parameterType="String" >
+		delete from t_cd
+		<where>
+			<if test="cid != null and cid.length()>0">
+				and c_id = #{cid}
+			</if>
+		</where>
+	</delete>
+	<update id="editCd" parameterType="map">
+		UPDATE `jddc`.`t_cd` SET `c_cdmc` =  #{map.cdmc}, `f_jg` =  #{map.jg,jdbcType=FLOAT}, `c_cl` =(select c_id from t_cl where c_cl = #{map.cl})
+		WHERE `c_id` =  #{map.cid}
+	</update>
+</mapper>

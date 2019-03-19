@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.neusoft.mapper.OrderMapper">
+	<resultMap type="com.neusoft.vo.Order" id="BaseResultMap">
+		<id column="c_id" property="CId" jdbcType="VARCHAR" />
+   		<result column="c_czmc" property="CCzmc" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getOrderById" parameterType="String" resultMap="BaseResultMap">
+		
+		<where>
+			<if test="cid != null and cid.length()>0">
+				and c_id = #{cid}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getAllOrder" resultMap="BaseResultMap">
+		
+	</select>
+	
+	<insert id="addOrder" parameterType="map">
+		INSERT INTO `jddc`.`t_order`(`c_id`, `c_user`, `c_czmc`, `c_dcxx`, `c_dcsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj`) VALUES ('1', '-1', '7ac85e314a2211e9820b00163e062ea2', '1;2', '1;1', 2, 100, '1', '2019-03-19 18:30:15');
+		
+	</insert>
+	<delete id="deleteOrder" parameterType="String" >
+		delete from t_order 
+		<where>
+			<if test="cid != null and cid.length()>0">
+				and c_id = #{cid}
+			</if>
+		</where>
+	</delete>
+	<update id="editOrder" parameterType="map">
+		
+	</update>
+</mapper>
