@@ -3,7 +3,14 @@
 <mapper namespace="com.neusoft.mapper.OrderMapper">
 	<resultMap type="com.neusoft.vo.Order" id="BaseResultMap">
 		<id column="c_id" property="CId" jdbcType="VARCHAR" />
+   		<result column="c_user" property="CUser" jdbcType="VARCHAR" />
    		<result column="c_czmc" property="CCzmc" jdbcType="VARCHAR" />
+   		<result column="c_dcxx" property="CDcxx" jdbcType="VARCHAR" />
+   		<result column="c_dcsl" property="CDcsl" jdbcType="VARCHAR" />
+   		<result column="n_zs" property="NZs" jdbcType="INTEGER" />
+   		<result column="f_zj" property="FZj" jdbcType="FLOAT" />
+   		<result column="c_ddzt" property="CDdzt" jdbcType="VARCHAR" />
+   		<result column="d_cjsj" property="DCjsj" jdbcType="DATE" />
 	</resultMap>
 	<select id="getOrderById" parameterType="String" resultMap="BaseResultMap">
 		select `c_id`, `c_user`, `c_czmc`, `c_dcxx`, `c_dcsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj` from t_order

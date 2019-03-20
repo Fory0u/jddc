@@ -8,7 +8,9 @@ import com.neusoft.vo.Cz;
 public interface ICzService {
 	Cz getCzById(String cid);
 	List<Cz> getAllCz();
-
+	
+	int editCz(Map<String, Object> map);
+	
 	int addCz(Map<String, Object> map);
 
 	int deleteCz(String cid);

@@ -11,22 +11,29 @@ public class Order {
 	private String CUser;//点菜人
 	private String CCzmc;//餐桌名称
 	private String CDcxx;//点菜信息
-	private Integer NDcsl;//点菜数量
-	private float NZj;//总价
+	private Integer CDcsl;//点菜数量
+	private float FZj;//总价
 	private Integer NZs;//总数
 	private String CDdzt;//订单状态
 	private Date DCjsj;//创建时间
+	
+	public float getFZj() {
+		return FZj;
+	}
+	public void setFZj(float fZj) {
+		FZj = fZj;
+	}
 	public String getCCzmc() {
 		return CCzmc;
 	}
 	public void setCCzmc(String cCzmc) {
 		CCzmc = cCzmc;
 	}
-	public Integer getNDcsl() {
-		return NDcsl;
+	public Integer getCDcsl() {
+		return CDcsl;
 	}
-	public void setNDcsl(Integer nDcsl) {
-		NDcsl = nDcsl;
+	public void setCDcsl(Integer cDcsl) {
+		CDcsl = cDcsl;
 	}
 	public Integer getNZs() {
 		return NZs;
@@ -40,13 +47,6 @@ public class Order {
 	public void setCDdzt(String cDdzt) {
 		CDdzt = cDdzt;
 	}
-	public float getNZj() {
-		return NZj;
-	}
-	public void setNZj(float nZj) {
-		NZj = nZj;
-	}
-	private String CCzr;
 	public String getCId() {
 		return CId;
 	}
@@ -70,12 +70,6 @@ public class Order {
 	}
 	public void setDCjsj(Date dCjsj) {
 		DCjsj = dCjsj;
-	}
-	public String getCCzr() {
-		return CCzr;
-	}
-	public void setCCzr(String cCzr) {
-		CCzr = cCzr;
 	}
 	public Order() {
 		super();
