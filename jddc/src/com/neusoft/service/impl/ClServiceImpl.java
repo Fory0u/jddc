@@ -25,9 +25,9 @@ public class ClServiceImpl implements IClService{
 	}
 
 	@Override
-	public List<Cl> getAllCl() {
+	public List<Cl> getAllCl(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return clMapper.getAllCl();
+		return clMapper.getAllCl(map);
 	}
 
 	@Override
@@ -47,5 +47,9 @@ public class ClServiceImpl implements IClService{
 		// TODO Auto-generated method stub
 		return clMapper.editCl(map);
 	}
-
+	@Override
+	public int queryCount(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return clMapper.queryCount(map);
+	}
 }

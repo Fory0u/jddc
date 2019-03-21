@@ -17,7 +17,7 @@
 <link href="ht/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
 <link href="ht/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
 <link href="ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
-<title>"含蓄"美容美发</title>
+<title>酒店点菜后台管理系统</title>
 </head>
 <body>
 <div class="loginWraper">

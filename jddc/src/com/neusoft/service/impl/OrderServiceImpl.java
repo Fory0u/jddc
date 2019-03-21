@@ -25,9 +25,9 @@ public class OrderServiceImpl implements IOrderService{
 	}
 
 	@Override
-	public List<Order> getAllOrder() {
+	public List<Order> getAllOrder(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return orderMapper.getAllOrder();
+		return orderMapper.getAllOrder(map);
 	}
 
 	@Override
@@ -46,6 +46,12 @@ public class OrderServiceImpl implements IOrderService{
 	public int editOrder(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return orderMapper.editOrder(map);
+	}
+
+	@Override
+	public int queryCount(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return orderMapper.queryCount(map);
 	}
 
 }

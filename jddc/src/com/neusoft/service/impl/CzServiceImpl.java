@@ -25,9 +25,9 @@ public class CzServiceImpl implements ICzService{
 	}
 
 	@Override
-	public List<Cz> getAllCz() {
+	public List<Cz> getAllCz(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return czMapper.getAllCz();
+		return czMapper.getAllCz(map);
 	}
 
 	@Override
@@ -46,6 +46,12 @@ public class CzServiceImpl implements ICzService{
 	public int editCz(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return czMapper.editCz(map);
+	}
+
+	@Override
+	public int queryCount(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return czMapper.queryCount(map);
 	}
 
 }

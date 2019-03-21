@@ -7,11 +7,12 @@ import com.neusoft.vo.Cz;
 
 public interface CzMapper {
 	Cz getCzById(String cid);
-	List<Cz> getAllCz();
+	List<Cz> getAllCz(Map<String, Object> map);
 	
 	int editCz(Map<String, Object> map);
 	
 	int addCz(Map<String, Object> map);
 
 	int deleteCz(String cid);
+	int queryCount(Map<String, Object> map);
 }

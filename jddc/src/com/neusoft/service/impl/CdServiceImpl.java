@@ -25,9 +25,9 @@ public class CdServiceImpl implements ICdService{
 	}
 
 	@Override
-	public List<Cd> getAllCd() {
+	public List<Cd> getAllCd(Map<String, Object> map) {
 		// TODO Auto-generated method stub
-		return cdMapper.getAllCd();
+		return cdMapper.getAllCd(map);
 	}
 
 	@Override
@@ -46,6 +46,12 @@ public class CdServiceImpl implements ICdService{
 	public int editCd(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return cdMapper.editCd(map);
+	}
+
+	@Override
+	public int queryCount(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return cdMapper.queryCount(map);
 	}
 
 }

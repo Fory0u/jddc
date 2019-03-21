@@ -18,7 +18,7 @@
 <link href="ht/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
 <link href="ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
 
-<title>员工添加</title>
+<title>用户添加</title>
 <script language="javascript" type="text/javascript">
 function validate() {
 	var itemName = document.getElementById("userName").value;
@@ -48,9 +48,9 @@ function validate() {
 <article class="page-container">
 	<form class="form form-horizontal" id="form-admin-add" action="user.do?addUser" method="post" target="_parent">
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>员工姓名：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>用户姓名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="userName" name="userName" placeholder="员工姓名" style="width: 250px">
+				<input type="text" class="input-text" id="userName" name="userName" placeholder="用户姓名" style="width: 250px">
 			</div>
 		</div>
 		

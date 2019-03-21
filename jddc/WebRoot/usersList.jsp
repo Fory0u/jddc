@@ -25,13 +25,13 @@
 			href="<%=path%>/ht/lib/icheck/icheck.css" />
 		<link rel="stylesheet" type="text/css"
 			href="<%=path%>/ht/static/h-ui.admin/skin/default/skin.css" id="skin" />
-		<title>员工列表</title>
+		<title>用户列表</title>
 	</head>
 	<body>
 		<nav class="breadcrumb">
 		<i class="Hui-iconfont">&#xe67f;</i> 首页
-		<span class="c-gray en">&gt;</span> 员工
-		<span class="c-gray en">&gt;</span> 员工列表
+		<span class="c-gray en">&gt;</span> 用户
+		<span class="c-gray en">&gt;</span> 用户列表
 		<a class="btn btn-success radius r"
 			style="line-height: 1.6em; margin-top: 3px"
 			href="javascript:location.replace(location.href);" title="刷新"><i
@@ -54,21 +54,21 @@
 				</div>
 				--%><div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> <a href="javascript:;"
-						onclick="admin_add('员工添加','${pageContext.request.contextPath}/user_add.jsp','600','500')"
+						onclick="admin_add('用户添加','${pageContext.request.contextPath}/user_add.jsp','600','500')"
 						class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i>
-							添加员工</a>
+							添加用户</a>
 					</span>
 				</div>
 				<table class="table table-border table-bordered table-bg">
 					<thead>
 						<tr>
 							<th scope="col" colspan="9">
-								员工列表
+								用户列表
 							</th>
 						</tr>
 						<tr class="text-c">
 							<th width="40" class="">
-								员工编码
+								用户编码
 							</th>
 							<th width="120">
 								登录名
@@ -107,7 +107,7 @@
 								</td>
 								<td class="td-manage">
 									<a title="编辑" href="javascript:;"
-										onclick="admin_edit('员工编辑','${pageContext.request.contextPath}/user.do?detailUser&cid=${s.CId}','1','600','500')"
+										onclick="admin_edit('用户编辑','${pageContext.request.contextPath}/user.do?detailUser&cid=${s.CId}','1','600','500')"
 										class="ml-5" style="text-decoration: none"><i
 										class="Hui-iconfont">&#xe6df;</i>
 									</a>									

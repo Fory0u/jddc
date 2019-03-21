@@ -23,7 +23,7 @@
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">"含蓄"美容</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">酒店点菜后台管理系统</a>  <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">
 				</li>
@@ -51,23 +51,45 @@
 	<input runat="server" id="divScrollValue" type="hidden" value="" />
 	<div class="menu_dropdown bk_2">
 		<dl id="menu-admin">
-			<dt><i class="Hui-iconfont">&#xe62d;</i> 员工管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe62d;</i> 用户管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/user.do?listUser" data-title="员工列表" href="javascript:void(0)">员工列表</a></li>
-				    <li><a _href="${pageContext.request.contextPath}/user.do?listUserRecord" data-title="员工打卡列表" href="javascript:void(0)">员工打卡列表</a></li>
-				
+                	<li><a _href="${pageContext.request.contextPath}/user.do?listUser" data-title="用户列表" href="javascript:void(0)">用户列表</a></li>				
 				</ul>
 			</dd>
 		</dl>
 
 		<dl id="menu-product">
-			<dt><i class="Hui-iconfont">&#xe620;</i> 消费管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dt><i class="Hui-iconfont">&#xe620;</i>餐桌管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-                	<li><a _href="${pageContext.request.contextPath}/consume.do?consumeTypeList" data-title="消费类型列表" href="javascript:void(0)">消费类型列表</a></li>
-					<li><a _href="${pageContext.request.contextPath}/consume.do?listCust" data-title="客户列表" href="javascript:void(0)">客户列表</a></li>
-					<li><a _href="${pageContext.request.contextPath}/consume.do?listPro" data-title="产品列表" href="javascript:void(0)">产品列表</a></li>
+                	<li><a _href="${pageContext.request.contextPath}/cz.do?listCz" data-title="餐桌列表" href="javascript:void(0)">餐桌列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe60c;</i>菜类管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+                	<li><a _href="${pageContext.request.contextPath}/cl.do?listCl" data-title="菜类列表" href="javascript:void(0)">菜类列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe681;</i>菜单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+                	<li><a _href="${pageContext.request.contextPath}/cd.do?listCd" data-title="菜单列表" href="javascript:void(0)">菜单列表</a></li>
+				</ul>
+			</dd>
+		</dl>
+		<dl id="menu-product">
+			<dt><i class="Hui-iconfont">&#xe627;</i>订单管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+			<dd>
+				<ul>
+                	<li><a _href="${pageContext.request.contextPath}/order.do?listOrder" data-title="订单列表" href="javascript:void(0)">订单列表</a></li>
 				</ul>
 			</dd>
 		</dl>

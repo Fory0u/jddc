@@ -32,4 +32,12 @@
 	<update id="editCl" parameterType="map">
 		UPDATE `jddc`.`t_cl` SET `c_cl` = #{map.cl} WHERE `c_id` = #{map.cid}
 	</update>
+	<select id="queryCount" resultType="int">
+		SELECT count(1) FROM t_cl
+		<where>
+			<if test="cid != null and cid.length()>0">
+				and c_id = #{map.cid}
+			</if>
+		</where>
+	</select>
 </mapper>
