@@ -16,8 +16,11 @@
 		</where>
 	</select>
 	
-	<select id="getAllCz" resultMap="BaseResultMap">
+	<select id="getAllCz" parameterType="map" resultMap="BaseResultMap">
 		select `c_id`, `c_czmc`, `c_czzt`, `n_czrs` from t_cz 
+		<if test="map.start >0 and map.size >0">
+			limit  #{map.start},#{map.size}
+		</if>
 	</select>
 	
 	<insert id="addCz" parameterType="map">
