@@ -37,4 +37,43 @@ public class CzController {
 		modelmap.put("czs", czs);
 		return "czsList";
 	}
+	
+	@RequestMapping(params="addCz")
+	public String addCz(String czmc,String czzt,Integer czrs,ModelMap modelmap ){
+		Map<String,Object> map=new HashMap<String, Object>();
+		map.put("czmc",czmc);
+		map.put("czzt",czzt);
+		map.put("czrs",czrs);
+		
+		int count = iCzService.addCz(map);
+		if(count >0){
+			return "redirect:cz.do?listCz";
+		}else{
+			return "no";
+		}
+	}
+	@RequestMapping(params="editCz")
+	public String editCz(String cid,String czmc,String czzt,Integer czrs,ModelMap modelmap ){
+		Map<String,Object> map=new HashMap<String, Object>();
+		map.put("cid",cid);
+		map.put("czmc",czmc);
+		map.put("czzt",czzt);
+		map.put("czrs",czrs);
+		
+		int count = iCzService.editCz(map);
+		if(count >0){
+			return "redirect:cz.do?listCz";
+		}else{
+			return "no";
+		}
+	}
+	@RequestMapping(params="deleteCz")
+	public String deleteCz(String cid,ModelMap modelmap ){
+		int count = iCzService.deleteCz(cid);
+		if(count >0){
+			return "redirect:cz.do?listCz";
+		}else{
+			return "no";
+		}
+	}
 }

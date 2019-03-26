@@ -32,7 +32,7 @@
 		delete from t_cz 
 		<where>
 			<if test="cid != null and cid.length()>0">
-				and c_id = #{cid}
+				and c_id = #{cid,jdbcType=VARCHAR}
 			</if>
 		</where>
 	</delete>
@@ -47,7 +47,7 @@
 	<select id="queryCount" resultType="int">
 		SELECT count(1) FROM t_cz 
 		<where>
-			<if test="cid != null and cid.length()>0">
+			<if test="map.cid != null and map.cid != '' ">
 				and c_id = #{map.cid}
 			</if>
 		</where>
