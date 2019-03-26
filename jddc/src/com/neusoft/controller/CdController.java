@@ -9,20 +9,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.neusoft.service.IClService;
-import com.neusoft.vo.Cl;
+import com.neusoft.service.ICdService;
+import com.neusoft.vo.Cd;
 @Controller
-@RequestMapping("cl.do")
+@RequestMapping("cd.do")
 public class CdController {
 	
 	@Autowired
-	IClService iClService;
+	ICdService iCdService;
 	
-	@RequestMapping(params="listCl")
-	public String listCl(Integer index,ModelMap modelmap ){
+	@RequestMapping(params="listCd")
+	public String listCd(Integer index,ModelMap modelmap ){
 		int size=5;
 		Map<String,Object> map=new HashMap<String, Object>();
-		int count=iClService.queryCount(map);
+		int count=iCdService.queryCount(map);
 		int total=count%size==0?count/size:count/size+1;
 		if(index==null){
 			index=1;
@@ -30,42 +30,45 @@ public class CdController {
 		map.put("start", (index-1)*size);
 		map.put("size", size);
 		
-		List<Cl> cls=iClService.getAllCl(map);
+		List<Cd> cds=iCdService.getAllCd(map);
 		modelmap.put("index", index);
 		modelmap.put("total", total);
-		modelmap.put("cls", cls);
-		return "clsList";
+		modelmap.put("cds", cds);
+		return "cdsList";
 	}
 	
-	@RequestMapping(params="addCl")
-	public String addCl(String cl,ModelMap modelmap ){
+	@RequestMapping(params="addCd")
+	public String addCd(String cdmc,String cl,float jg,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();
+		map.put("cdmc",cdmc);
 		map.put("cl",cl);
-		
-		int count = iClService.addCl(map);
+		map.put("jg",jg);
+		int count = iCdService.addCd(map);
 		if(count >0){
-			return "redirect:cl.do?listCl";
+			return "redirect:cd.do?listCd";
 		}else{
 			return "no";
 		}
 	}
-	@RequestMapping(params="editCl")
-	public String editCl(String cid,String cl,ModelMap modelmap ){
+	@RequestMapping(params="editCd")
+	public String editCd(String cid,String cdmc,String cl,Float jg,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();
 		map.put("cid",cid);
+		map.put("cdmc",cdmc);
 		map.put("cl",cl);
-		int count = iClService.editCl(map);
+		map.put("jg",jg);
+		int count = iCdService.editCd(map);
 		if(count >0){
-			return "redirect:cl.do?listCl";
+			return "redirect:cd.do?listCd";
 		}else{
 			return "no";
 		}
 	}
-	@RequestMapping(params="deleteCl")
-	public String deleteCl(String cid,ModelMap modelmap ){
-		int count = iClService.deleteCl(cid);
+	@RequestMapping(params="deleteCd")
+	public String deleteCd(String cid,ModelMap modelmap ){
+		int count = iCdService.deleteCd(cid);
 		if(count >0){
-			return "redirect:cl.do?listCl";
+			return "redirect:cd.do?listCd";
 		}else{
 			return "no";
 		}
