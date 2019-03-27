@@ -11,6 +11,7 @@
 	
 	<select id="getLogin" parameterType="String" resultMap="BaseResultMap">
     	select c_id,c_loginid,c_name,c_password,n_lx from t_user where c_loginid=#{loginid} and c_password = #{loginPwd} 
+    	limit 1
     </select>
     <select id="getUserList" parameterType="map" resultMap="BaseResultMap">
 		 select c.* from 

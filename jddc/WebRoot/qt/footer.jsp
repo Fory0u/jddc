@@ -27,9 +27,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="ng-promise-box">
         <div class="ng-promise w1200">
             <p class="text">
-                <a class="icon1" href="javascript:;">7天无理由退换货</a>
+               <!--  <a class="icon1" href="javascript:;">7天无理由退换货</a>
                 <a class="icon2" href="javascript:;">满99元全场免邮</a>
-                <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a>
+                <a class="icon3" style="margin-right: 0" href="javascript:;">100%品质保证</a> -->
             </p>
         </div>
     </div>

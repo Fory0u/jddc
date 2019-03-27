@@ -28,6 +28,7 @@
 				c_user = #{map.ryid}
 			</if>
 		</where>
+		limit #{map.start},#{map.size}
 	</select>
 	
 	<insert id="addOrder" parameterType="map">

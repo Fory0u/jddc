@@ -99,14 +99,14 @@ i{font-style: normal;}
 .content .product-list-box .product-list-cont .product-item-box .list-item p{padding:0 26px; text-align: left; line-height: 20px; margin-bottom: 14px;}
 .content .product-list-box .product-list-cont .product-item-box{width: 1210px;}
 .content .product-list-box .product-list-cont .product-item-box .list-item span{color: #ee0000;}
-.footer{background: #2f2f2f; padding-bottom: 54px;}
+.footer{background: #2f2f2f; padding-bottom: 24px;}
 .footer .ng-promise-box{border-bottom:1px solid #3d3d3d; line-height: 145px;}
 .footer .ng-promise-box .ng-promise{padding-left: 100px; box-sizing: border-box;}
 .footer .ng-promise-box .ng-promise p a{ color: #fff; font-size: 20px; margin-right: 210px; padding-left: 44px; height: 40px; display: inline-block; line-height: 40px; background: url(../img/us-icon.png) no-repeat left 0;}
 .footer .ng-promise-box .ng-promise p a.icon2{padding-left: 56px; background-position:0 -44px;}
 .footer .ng-promise-box .ng-promise p a.icon3{background-position:0 -80px;}
 .footer .mod_help{text-align: center; color: #888888;}
-.footer .mod_help p{margin:38px 0 16px 0;}
+.footer .mod_help p{    margin: 27px 0 0 0;}
 .footer .mod_help p a{color: #888888;}
 .footer .mod_help p span{padding:0 22px;}
 

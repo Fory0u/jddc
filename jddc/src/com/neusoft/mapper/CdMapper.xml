@@ -19,6 +19,7 @@
 	<select id="getAllCd" resultMap="BaseResultMap">
 		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
 		
+		limit #{map.start},#{map.size}
 	</select>
 	
 	<insert id="addCd" parameterType="map">

@@ -18,9 +18,8 @@
 	
 	<select id="getAllCz" parameterType="map" resultMap="BaseResultMap">
 		select `c_id`, `c_czmc`, `c_czzt`, `n_czrs` from t_cz 
-		<if test="map.start >0 and map.size >0">
-			limit  #{map.start},#{map.size}
-		</if>
+		limit #{map.start},#{map.size}
+		
 	</select>
 	
 	<insert id="addCz" parameterType="map">
