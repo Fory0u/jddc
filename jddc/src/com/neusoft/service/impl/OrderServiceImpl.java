@@ -54,4 +54,12 @@ public class OrderServiceImpl implements IOrderService{
 		return orderMapper.queryCount(map);
 	}
 
+	@Override
+	public int queryCountOrdersByRyid(Map<String, Object> map) {
+		// TODO Auto-generated method stub
+		return orderMapper.queryCountOrdersByRyid(map);
+	}
+
+	
+
 }

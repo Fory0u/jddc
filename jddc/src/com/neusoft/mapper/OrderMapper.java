@@ -18,4 +18,7 @@ public interface OrderMapper {
 	int deleteOrder(@Param("cid")String cid);
 	
 	int queryCount(@Param("map")Map<String, Object> map);
+	
+	int queryCountOrdersByRyid(@Param("map")Map<String, Object> map);
+	
 }

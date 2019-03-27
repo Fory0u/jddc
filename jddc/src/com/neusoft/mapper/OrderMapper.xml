@@ -23,6 +23,11 @@
 	
 	<select id="getAllOrder" resultMap="BaseResultMap">
 		select `c_id`, `c_user`, `c_czmc`, `c_dcxx`, `c_dcsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj` from t_order
+		<where>
+			<if test="map.ryid != null and map.ryid.length()>0">
+				c_user = #{map.ryid}
+			</if>
+		</where>
 	</select>
 	
 	<insert id="addOrder" parameterType="map">
@@ -38,13 +43,21 @@
 		</where>
 	</delete>
 	<update id="editOrder" parameterType="map">
-		UPDATE `jddc`.`t_order` SET `c_user` = #{map.cid}, `c_czmc` = (select c_id from t_cz where c_czmc = #{map.czmc}), `c_dcxx` =  #{map.dcxx}, `c_dcsl` = #{map.dcsl}, `n_zs` =  #{map.zs,jdbcType=INTEGER}, `f_zj` =  #{map.zj,jdbcType=FLOAT}, `c_ddzt` = (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10003	and c_mc = #{map.ddzt}), `d_cjsj` =  now() WHERE `c_id` = #{map.cid}
+		UPDATE `jddc`.`t_order` SET `c_user` = #{map.user}, `c_czmc` = (select c_id from t_cz where c_czmc = #{map.czmc}), `c_dcxx` =  #{map.dcxx}, `c_dcsl` = #{map.dcsl}, `n_zs` =  #{map.zs,jdbcType=INTEGER}, `f_zj` =  #{map.zj,jdbcType=FLOAT}, `c_ddzt` = (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10003	and c_mc = #{map.ddzt}), `d_cjsj` =  now() WHERE `c_id` = #{map.cid}
 	</update>
 	<select id="queryCount" resultType="int">
 		SELECT count(1) FROM t_order
 		<where>
 			<if test="map.cid != null and map.cid.length()>0">
 				and c_id = #{map.cid}
+			</if>
+		</where>
+	</select>
+	<select id="queryCountOrdersByRyid" resultType="int">
+		SELECT count(1) FROM t_order
+		<where>
+			<if test="map.ryid != null and map.ryid.length()>0">
+				and c_user = #{map.ryid}
 			</if>
 		</where>
 	</select>

@@ -80,11 +80,8 @@
 		 $.post(
               "${pageContext.request.contextPath}/user.do?isLogin",{'userNo':name,'userPwd':pwd},
                   function(data,status){
-                    if(data=='A'){
-                       alert("账号有误");
-                       return false;
-                        }if(data=='N'){
-                         alert("密码有误");
+                    if(data=='N'){
+                         alert("账号或密码错误");
                        return false;
                         }else{
                           location.href="${pageContext.request.contextPath}/user.do?indexBg";

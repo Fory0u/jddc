@@ -1,5 +1,6 @@
 package com.neusoft.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -53,5 +54,6 @@ public class CdServiceImpl implements ICdService{
 		// TODO Auto-generated method stub
 		return cdMapper.queryCount(map);
 	}
-
+	
+	
 }
