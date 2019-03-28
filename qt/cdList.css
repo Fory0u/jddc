@@ -92,7 +92,7 @@ h6 { background: url(../images/menu_txt_3.png) no-repeat; width: 192px; height: 
 .order_detail ul li .pro_title{ width:140px; line-height:18px; float:left; text-align:left; color:#000; font-size:14px; margin:0px 0px 0px 0px; padding:5px 0px;}
 .order_detail ul li .del{ width:14px; height:14px; float:right; margin:8px 0px 0px 0px;}
 .order_detail ul li .del a{ width:14px; height:14px; float:left; background:url(img/del.png) no-repeat;}
-.order_detail ul li .price{ width:35%; height:18px; line-height:18px; float:right; text-align:right; margin:0px 0px 0px 0px; font-size:14px; color:#231f20;}
+.order_detail ul li .price{ width:37%; height:18px; line-height:18px; float:right; text-align:right; margin:0px 0px 0px 0px; font-size:14px; color:#231f20;}
 .order_detail li .pro_numbers { float:left; width:100px; margin:0px 0px 0px 0px;}
 .order_detail li .pro_numbers img { vertical-align: middle; }
 .order_detail li .pro_numbers_input { background: #fff; width: 36px; height: 16px; border: none; text-align: center; vertical-align: middle; margin: 0px 2px; color: #3f3f3f; font-size: 12px; text-align: center; font-family:"å®‹ä½“"; line-height:16px; border: 1px solid #c3c3c3;}
