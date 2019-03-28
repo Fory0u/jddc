@@ -1,0 +1,8 @@
+
+.site-content{width: 899px;/* min-height: 900px; */padding: 20px 0 10px 20px;margin: 0 auto; }
+.site-block{padding: 20px;border: 1px solid #eee;}
+.site-block .layui-form{margin-right: 200px;}
+
+.layui-form-label{
+    width:110px !important;
+}

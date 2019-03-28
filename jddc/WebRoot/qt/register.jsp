@@ -77,11 +77,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		  //监听提交
 		  form.on('submit(formDemo)', function(data){
 			  $.ajax({                 
-				url: 'user.do?addUser',                 
+				url: '${pageContext.request.contextPath}/user.do?addUser',                 
 				type: 'get',                 
 				data: $(data.form).serialize(),                 
 				success: function(info) { 
-				debugger                    
+					debugger                 
 					if(info) {            
 							location.href = '${pageContext.request.contextPath}/user.do?qiehuan';         
 					}else{

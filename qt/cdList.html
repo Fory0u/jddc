@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./cdList.css" />
+    <link rel="stylesheet" href="./res/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
+    <script src="res/jquery/jquery.min.js"></script>
+    <script src="res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="order.js"></script>
+</head>
+
+<body>
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation"><a href="#">Home</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                    <li role="presentation"><a href="#">Profile</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                    <li role="presentation"><a href="#">Messages</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                    <li role="presentation"><a href="#">Profile</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                    <li role="presentation"><a href="#">Messages</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                    <li role="presentation"><a href="#">Profile</a><i class="glyphicon glyphicon-chevron-right
+                    "></i></li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <!-- <img
+                        data-src="holder.js/100%x200"
+                        alt="100%x200"
+                        src="../img/cz1.jpg"
+                        data-holder-rendered="true"
+                        style="height: 200px; width: 100%; display: block;"
+                      /> -->
+                        <div class="caption">
+                            <h3 class="cdmc">餐单1</h3>
+                            <p class="money">价格：10</p>
+                            <p>
+                                <a href="#" class="btn btn-primary dc" role="button" >点菜</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <!-- <img
+                            data-src="holder.js/100%x200"
+                            alt="100%x200"
+                            src="../img/cz1.jpg"
+                            data-holder-rendered="true"
+                            style="height: 200px; width: 100%; display: block;"
+                          /> -->
+                            <div class="caption">
+                                <h3 class="cdmc">餐单2</h3>
+                                <p class="money">价格：20</p>
+                                <p>
+                                    <a href="#" class="btn btn-primary dc" role="button" >点菜</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-md-3">
+                <div class="right_order_menu">
+                    <div class="right_order_top">
+                        <h2>购物车</h2>
+                        <span class="shop_cart_num" id="tatalnum">7</span>
+                    </div>
+                    <div class=" sub_right_order_main">
+                        <div class="order_detail" style="height: 265px;">
+                            <ul id="cart_menus">
+                                <li>
+                                    <div class="pro_title">9.9元黄金鸡块9块</div>
+                                    <div class="del"><a href="javascript:void(0);"></a></div>
+                                    <div class="pro_numbers"><a href="javascript:void(0);" style="cursor: default;"
+                                            class="doMinus"><img
+                                                src="img/minus_icon_2s_dis.gif"></a><input
+                                            type="text" class="pro_numbers_input" value="1" maxlength="4"
+                                            disabled="disabled" onkeyup="this.value=this.value.replace(/D/g,'');"><a
+                                            href="javascript:void(0);" style="cursor: pointer;" class="doPlus"><img
+                                                src="img/plus_icon_2s.gif"></a>
+                                    </div>
+                                    <div class="price">9.9</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <ul>
+                            <li>
+                                <span class="Til">小计:</span>
+                                <span class="Price">360.9</span>
+                            </li>
+                            <li>
+                                <span class="Til" style="width: 170px;">外送费<font id="prodesc" color="red"></font></span>
+                                <span class="Price">9.0</span>
+                            </li>
+                            <li id="netUser_price" style="display: none;">
+                            </li>
+                            <li>
+                                <span class="Til">合计:</span>
+                                <span class="Price">369.9</span>
+                            </li>
+                            <li style="height: 22px;">
+                                <span class="Til" style="color: red;display:none;">
+                                    本单您共省了：
+                                </span>
+                                <span class="Price" style="color: red;display:none;">4.0</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="al_c">
+                        <input type="button" class="order_btn_1">
+                    </p>
+                    <p style="padding:6px 10px;">
+                        <span class="span_3">提醒：根据您最终提交订单时间，送餐时间可能略有调整。</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
