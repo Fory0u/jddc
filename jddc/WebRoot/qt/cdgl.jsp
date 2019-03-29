@@ -1,20 +1,23 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>酒店点菜页面</title>
-    <link rel="stylesheet" href="./cdList.css" />
-    <link rel="stylesheet" href="./res/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-    <script src="res/jquery/jquery.min.js"></script>
-    <script src="res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="$json.js"></script>
-    <script src="order.js"></script>
+    <title>酒店菜单管理页面</title>
+    <script src="<%=path%>/qt/res/jquery/jquery.min.js"></script>
+	<link rel="stylesheet" href="css/cdList.css" />
+	<script src="js/order.js"></script>
 </head>
 
 <body>
+<c:import url="head.jsp"></c:import>
     <div class="container ">
         <div class="row">
             <div class="col-md-3">
@@ -135,6 +138,7 @@
         <input name="ddzt" type="text" value="未结账">
         <input type="text" name="qt" value="qt">
     </form>
+    <c:import url="footer.jsp"></c:import>
 </body>
 
 </html>

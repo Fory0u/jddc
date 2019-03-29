@@ -21,7 +21,7 @@
 		</where>
 	</select>
 	
-	<select id="getAllOrder" resultMap="BaseResultMap">
+	<select id="getAllOrder" resultType="hashmap">
 		select `c_id`, `c_user`, `c_czmc`, `c_dcxx`, `c_dcsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj` from t_order
 		<where>
 			<if test="map.ryid != null and map.ryid.length()>0">
@@ -33,7 +33,7 @@
 	
 	<insert id="addOrder" parameterType="map">
 		INSERT INTO `jddc`.`t_order`(`c_id`, `c_user`, `c_czmc`, `c_dcxx`, `c_dcsl`, `n_zs`, `f_zj`, `c_ddzt`, `d_cjsj`) 
-		VALUES (REPLACE(uuid(),'-',''), #{map.user}, (select c_id from t_cz where c_czmc = #{map.czmc}), #{map.dcxx}, #{map.dcsl}, #{map.zs,jdbcType=INTEGER}, #{map.zj,jdbcType=FLOAT}, (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10003	and c_mc = #{map.ddzt}), now())		
+		VALUES (REPLACE(uuid(),'-',''), #{map.user}, (select c_id from t_cz where c_czmc = #{map.czmc}), #{map.dcxx}, #{map.dcsl}, #{map.zs,jdbcType=INTEGER}, #{map.zj,jdbcType=FLOAT}, (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10004	and c_mc = #{map.ddzt}), now())		
 	</insert>
 	<delete id="deleteOrder" parameterType="String" >
 		delete from t_order 

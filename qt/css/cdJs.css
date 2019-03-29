@@ -53,11 +53,6 @@ h6 { background: url(../images/menu_txt_3.png) no-repeat; width: 192px; height: 
 .inputW1{width: 100px;}
 .inputW2{width: 120px;}
 .newpsline .radio_edit_text{vertical-align: bottom; padding-left: 10px;}
-
-.b_shang{ background: url(img/shang.png) no-repeat; width: 170px; height:30px; border: none; margin: 15px 0px 0px 300px; cursor: pointer;}
-.b_xia{background: #c30d23 ;width: 180px;height:30px;border: none;margin: 15px 0px 0px 10px;cursor: pointer;color: #fff;}
-.pr_num_jiange{ letter-spacing:2em; margin-right:-2em;}
-
 /*////////////content start////////////*/
 #content { width: 1001px; margin: 5px auto 12px auto;position:relative; }
 
@@ -109,6 +104,6 @@ p.coupon_explain{width:317px;height:73px;overflow:hidden;background:url(../image
 .prom_prods .jright{ width:12px; height:20px; background: url(../images/jr.png) no-repeat; position:absolute; top:110px; right:5px; cursor:pointer;}
 
 /*update wale width:139px */
-.backbtn{background: url(img/diancan.png) no-repeat;width:170px;height:30px;border:none;margin: 15px 0 0 300px;cursor:pointer;}
-.nextbtn{background: url(img/next_btn.png) no-repeat;width:168px;height:30px;border:0;cursor:pointer;margin: 15px 0 0 10px;}
-.subBtn{background: url(img/tijao.png) no-repeat;width:170px;height:30px;border:none; margin: 15px 0 0 10px;cursor:pointer;cursor: pointer;}
+.backbtn{background: url(../img/diancan.png) no-repeat;width:170px;height:30px;border:none;margin: 15px 0 0 300px;cursor:pointer;}
+.nextbtn{background: url(../img/next_btn.png) no-repeat;width:168px;height:30px;border:0;cursor:pointer;margin: 15px 0 0 10px;}
+.subBtn{background: url(../img/tijao.png) no-repeat;width:170px;height:30px;border:none; margin: 15px 0 0 10px;cursor:pointer;cursor: pointer;}

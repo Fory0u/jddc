@@ -1,20 +1,24 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>结算页面</title>
-    <link rel="stylesheet" href="./orderJs.css" />
-    <link rel="stylesheet" href="./res/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-    <script src="res/jquery/jquery.min.js"></script>
-    <script src="res/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-    <script src="$json.js"></script>
-    <script src="orderJs.js"></script>
+    <title>酒店订单结算页面</title>
+    
+	<script src="<%=path%>/qt/res/jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/orderJs.css" />
+    <script src="js/orderJs.js"></script>
 </head>
 
 <body>
+	<c:import url="head.jsp"></c:import>
     <div id="content" class="containter">
         <div class="login_content">
             <div class="order_content_main">
@@ -94,7 +98,7 @@
             </div>
 
         </div>
-        <form style="-display: none;" id="orderForm" >
+        <form style="display: none;" id="orderForm" >
                 <input type="text" name="cid" value="1"><!--菜单id ${cd.CId}-->
                 <input name="dcxx" type="text" value="">
                 <input name="dcsl" type="text" value="">
@@ -106,5 +110,6 @@
                 <input type="text" name="qt" value="qt">
         </form>
     </div>
+    <c:import url="footer.jsp"></c:import>
 </body>
 </html>

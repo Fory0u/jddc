@@ -17,4 +17,8 @@ public interface CdMapper {
 
 	int deleteCd(@Param("cid")String cid);
 	int queryCount(@Param("map")Map<String, Object> map);
+	
+	
+	
+	String selectDdzt(@Param("ddzt")String ddzt);
 }

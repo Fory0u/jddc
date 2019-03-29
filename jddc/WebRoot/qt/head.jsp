@@ -25,6 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="<%=path%>/qt/res/layui/layui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <script src="js/$json.js"></script>
     <style type="text/css">
         .header .mallSearch button{
             height: 35px;
@@ -42,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${loginUser.CName}</li>
             <li><a href="user.do?qiehuan">切换账户</a></li>
         </c:if>
-        <li><a href="order.do?listOrderByRyid&ryid=${loginUser.CId}"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
+        <li><a href="order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
     </ul>
     <div class="form-inline">
         <div class="header">
@@ -71,10 +72,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="navbar-collapse collapse" >
         <ul class="nav navbar-nav" >
             <li class="">
-                <a href="#">首页</a>
+                <a href="cz.do?listCzQt">餐桌管理</a>
             </li>
             <li class="">
-                <a href="#">联系我们</a>
+                <a href="cd.do?listCdQt">菜单管理</a>
+            </li>
+            <li class="">
+                <a href="order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}">订单管理</a>
             </li>
         </ul>
     </div>

@@ -9,7 +9,7 @@ import com.neusoft.vo.Order;
 
 public interface IOrderService {
 	Order getOrderById(String cid);
-	List<Order> getAllOrder(Map<String, Object> map);
+	List<Map<String,Object>> getAllOrder(Map<String, Object> map);
 	
 	int editOrder(Map<String, Object> map);
 	

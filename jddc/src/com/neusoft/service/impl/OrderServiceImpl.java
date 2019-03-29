@@ -25,7 +25,7 @@ public class OrderServiceImpl implements IOrderService{
 	}
 
 	@Override
-	public List<Order> getAllOrder(Map<String, Object> map) {
+	public List<Map<String,Object>> getAllOrder(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return orderMapper.getAllOrder(map);
 	}

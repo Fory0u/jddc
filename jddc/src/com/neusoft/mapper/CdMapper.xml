@@ -46,4 +46,7 @@
 			</if>
 		</where>
 	</select>
+	<select id="selectDdzt">
+		SELECT c_mc FROM t_dzdm WHERE n_bh = 10004 and n_bh_lx = #{ddzt}
+	</select>
 </mapper>

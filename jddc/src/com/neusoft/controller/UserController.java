@@ -54,7 +54,7 @@ public class UserController {
 		}else if (loginUser.getNLx() == 1){//管理员
 			return "adminIndex";
 		}else{
-			return "/qt/index";
+			return "/qt/czgl";
 		}
 		
 	}

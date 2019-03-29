@@ -11,19 +11,32 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>酒店点菜系统首页</title>
-    <%--<link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">--%>
-    <%--<script src="http://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>--%>
-    <%--<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>--%>
+    <title>酒店餐桌管理页面</title>
+    <link rel="stylesheet" href="css/index.css" />
 </head>
 <body>
 	<c:import url="head.jsp"></c:import>
-	​<div class="container">
-	   	
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<img alt="100%x200" src="../img/cz1.jpg"
+						style="height: 200px; width: 100%; display: block;" />
+					<div class="caption">
+						<h3>餐桌1</h3>
+						<p>餐桌状态：未入座</p>
+						<p>
+							<a href="#" class="btn btn-primary" role="button">入座</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<c:import url="footer.jsp"></c:import>
 </body>
