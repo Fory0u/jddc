@@ -44,7 +44,7 @@
 		</where>
 	</delete>
 	<update id="editOrder" parameterType="map">
-		UPDATE `jddc`.`t_order` SET `c_user` = #{map.user}, `c_czmc` = (select c_id from t_cz where c_czmc = #{map.czmc}), `c_dcxx` =  #{map.dcxx}, `c_dcsl` = #{map.dcsl}, `n_zs` =  #{map.zs,jdbcType=INTEGER}, `f_zj` =  #{map.zj,jdbcType=FLOAT}, `c_ddzt` = (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10003	and c_mc = #{map.ddzt}), `d_cjsj` =  now() WHERE `c_id` = #{map.cid}
+		UPDATE `jddc`.`t_order` SET `c_user` = #{map.user}, `c_czmc` = (select c_id from t_cz where c_czmc = #{map.czmc}), `c_dcxx` =  #{map.dcxx}, `c_dcsl` = #{map.dcsl}, `n_zs` =  #{map.zs,jdbcType=INTEGER}, `f_zj` =  #{map.zj,jdbcType=FLOAT}, `c_ddzt` = (SELECT `n_bh_lx` FROM	t_dzdm WHERE n_bh = 10003	and c_mc = #{map.ddzt}), `d_cjsj` = now() WHERE `c_id` = #{map.cid}
 	</update>
 	<select id="queryCount" resultType="int">
 		SELECT count(1) FROM t_order

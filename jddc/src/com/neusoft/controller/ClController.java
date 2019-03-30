@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.neusoft.service.IClService;
+import com.neusoft.vo.Cd;
 import com.neusoft.vo.Cl;
 @Controller
 @RequestMapping("cl.do")
@@ -36,7 +37,24 @@ public class ClController {
 		modelmap.put("cls", cls);
 		return "clsList";
 	}
-	
+	@RequestMapping(params="listClQt")
+	public String listClQt(Integer index,ModelMap modelmap ){
+		int size=5;
+		Map<String,Object> map=new HashMap<String, Object>();
+		int count=iClService.queryCount(map);
+		int total=count%size==0?count/size:count/size+1;
+		if(index==null){
+			index=1;
+		}
+		map.put("start", (index-1)*size);
+		map.put("size", size);
+		
+		List<Cl> cls=iClService.getAllCl(map);
+		modelmap.put("index", index);
+		modelmap.put("total", total);
+		modelmap.put("cls", cls);
+		return "/qt/cdgl";
+	}
 	@RequestMapping(params="addCl")
 	public String addCl(String cl,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();

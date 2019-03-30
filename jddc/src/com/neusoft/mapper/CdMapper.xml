@@ -46,7 +46,22 @@
 			</if>
 		</where>
 	</select>
-	<select id="selectDdzt">
+	<select id="selectDdzt" resultType="String" parameterType="String">
 		SELECT c_mc FROM t_dzdm WHERE n_bh = 10004 and n_bh_lx = #{ddzt}
+	</select>
+	
+	
+	<select id="selectCdByCl" resultMap="BaseResultMap" parameterType="String">
+		SELECT
+		t_cd.c_id,
+		t_cd.c_cdmc,
+		t_cd.f_jg,
+		t_cd.c_cl
+		FROM
+		t_cd ,
+		t_cl
+		WHERE
+		t_cd.c_cl = t_cl.c_id
+		and t_cl.c_id=#{clid}
 	</select>
 </mapper>

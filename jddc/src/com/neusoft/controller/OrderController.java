@@ -67,7 +67,7 @@ public class OrderController {
 		map.put("size", size);
 		List<Map<String,Object>> orders=iOrderService.getAllOrder(map);
 		//将orders中的代码进行映射
-		 getOrderList(orders);
+		getOrderList(orders);
 		modelmap.put("index", index);
 		modelmap.put("total", total);
 		modelmap.put("orders", orders);
@@ -76,7 +76,7 @@ public class OrderController {
 	@RequestMapping(params="addOrder")
 	public String addOrder(@RequestBody Map<String,Object> map ,ModelMap modelmap ){
 		getOrder(map);
-		map.put("dcsj", new Date());
+//		map.put("dcsj", new Date());
 		int count = iOrderService.addOrder(map); 
 		if(count >0){
 			if("qt".equals(map.get("qt"))){
@@ -90,7 +90,7 @@ public class OrderController {
 	@RequestMapping(params="editOrder")
 	public String editOrder(@RequestBody Map<String,Object> map,ModelMap modelmap ){
 		getOrder(map);
-		map.put("dcsj", new Date());
+//		map.put("dcsj", new Date());
 		int count = iOrderService.editOrder(map);
 		if(count >0){
 			return "redirect:order.do?listOrder";
@@ -143,8 +143,7 @@ public class OrderController {
 //		List<Map<String, Object>> list = new ArrayList<Map<String,Object>>();
 		
 		for (int i = 0; i < orders.size(); i++) {
-			for (Entry<String, Object> entry : orders.get(i).entrySet()) { 
-				
+			for (Entry<String, Object> entry : orders.get(i).entrySet()) {
 				if( "c_ddzt".equals(entry.getKey())){
 					entry.setValue(cdMapper.selectDdzt((String)entry.getValue()));
 				}

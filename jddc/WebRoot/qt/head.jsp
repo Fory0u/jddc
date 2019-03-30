@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="<%=path%>/qt/res/layui/layui.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <script src="js/$json.js"></script>
+    <script src="<%=path%>/qt/js/$json.js"></script>
     <style type="text/css">
         .header .mallSearch button{
             height: 35px;
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <a href="cz.do?listCzQt">餐桌管理</a>
             </li>
             <li class="">
-                <a href="cd.do?listCdQt">菜单管理</a>
+                <a href="cl.do?listClQt">菜单管理</a>
             </li>
             <li class="">
                 <a href="order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}">订单管理</a>

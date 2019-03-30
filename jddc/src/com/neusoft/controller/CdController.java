@@ -4,11 +4,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.mapper.CdMapper;
 import com.neusoft.service.ICdService;
 import com.neusoft.vo.Cd;
 @Controller
@@ -17,6 +23,8 @@ public class CdController {
 	
 	@Autowired
 	ICdService iCdService;
+	@Autowired
+	CdMapper cdMapper;
 	
 	@RequestMapping(params="listCd")
 	public String listCd(Integer index,ModelMap modelmap ){
@@ -36,7 +44,15 @@ public class CdController {
 		modelmap.put("cds", cds);
 		return "cdsList";
 	}
-	
+	/***
+	 * 根据菜类查询菜单
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(params="listCdByCl")
+	public JSONArray listCdQt(String clid,ModelMap modelmap ){
+		return JSONArray.fromObject(cdMapper.selectCdByCl(clid));
+	}
 	@RequestMapping(params="addCd")
 	public String addCd(String cdmc,String cl,float jg,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();

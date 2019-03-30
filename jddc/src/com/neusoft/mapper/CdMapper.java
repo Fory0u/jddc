@@ -21,4 +21,5 @@ public interface CdMapper {
 	
 	
 	String selectDdzt(@Param("ddzt")String ddzt);
+	List<Cd> selectCdByCl(String clid);
 }

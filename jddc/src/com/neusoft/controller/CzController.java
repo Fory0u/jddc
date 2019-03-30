@@ -37,6 +37,24 @@ public class CzController {
 		modelmap.put("czs", czs);
 		return "czsList";
 	}
+	@RequestMapping(params="listCzQt")
+	public String listCzQt(Integer index,ModelMap modelmap ){
+		int size=5;
+		Map<String,Object> map=new HashMap<String, Object>();
+		int count=iCzService.queryCount(map);
+		int total=count%size==0?count/size:count/size+1;
+		if(index==null){
+			index=1;
+		}
+		map.put("start", (index-1)*size);
+		map.put("size", size);
+		
+		List<Cz> czs=iCzService.getAllCz(map);
+		modelmap.put("index", index);
+		modelmap.put("total", total);
+		modelmap.put("czs", czs);
+		return "/qt/czgl";
+	}
 	
 	@RequestMapping(params="addCz")
 	public String addCz(String czmc,String czzt,Integer czrs,ModelMap modelmap ){
