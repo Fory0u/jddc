@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.mapper.CdMapper;
+import com.neusoft.mapper.ClMapper;
 import com.neusoft.service.ICdService;
 import com.neusoft.vo.Cd;
+import com.neusoft.vo.Cz;
 @Controller
 @RequestMapping("cd.do")
 public class CdController {
@@ -25,6 +27,8 @@ public class CdController {
 	ICdService iCdService;
 	@Autowired
 	CdMapper cdMapper;
+	@Autowired
+	ClMapper clMapper;
 	
 	@RequestMapping(params="listCd")
 	public String listCd(Integer index,ModelMap modelmap ){
@@ -39,10 +43,24 @@ public class CdController {
 		map.put("size", size);
 		
 		List<Cd> cds=iCdService.getAllCd(map);
+		getCds(cds);
 		modelmap.put("index", index);
 		modelmap.put("total", total);
 		modelmap.put("cds", cds);
 		return "cdsList";
+	}
+	
+	
+
+	/**
+	 * ̬将状态单值代码转成文字
+	 * @param czs
+	 */
+	private void getCds(List<Cd> cds) {
+		// TODO Auto-generated method stub
+		for (Cd cd : cds) {
+			cd.setCCl(clMapper.getClById(cd.getCCl()).getCCl());
+		}
 	}
 	/***
 	 * 根据菜类查询菜单

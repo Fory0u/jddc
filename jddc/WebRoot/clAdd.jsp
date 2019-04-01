@@ -20,32 +20,15 @@
 <link href="ht/static/h-ui.admin/css/style.css" rel="stylesheet" type="text/css" />
 <link href="ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet" type="text/css" />
 
-<title>菜单添加</title>
+<title>菜类添加</title>
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="cd.do?addCd" method="post"  target="_parent">
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜名：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" required id="cdmc" name="cdmc" placeholder="菜名" style="width: 250px">
-			</div>
-		</div>
-		
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>价格：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="number" class="input-text" step="0.01" required  placeholder="价格" id="jg" name="jg" style="width: 250px">
-			</div>
-		</div>
-	
+	<form class="form form-horizontal" id="form-admin-add" action="cl.do?addCl" method="post"  target="_parent">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜类：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<select id="cl" name="cl" required style='width:250px;height:30px'>
-					<!-- <option value ="男">男</option> 
-					<option value ="女">女</option>  -->
-			  	</select>
+				<input type="text" class="input-text" required="required" id="cl" name="cl" placeholder="菜名" style="width: 250px">
 			</div>
 		</div>
 		<div class="row cl">
@@ -69,22 +52,24 @@
 
 <!--请在下方写此页面业务相关的脚本--> 
 <script type="text/javascript">
-	$(function(){
+	/*$(function(){
 		$.ajax({
 				type: "post",
 			  	url: "cl.do?getAllCl",
 				success:function(rs){
 					for ( var i = 0; i < rs.length; i++) {
 						var obj = rs[i];
-					/* 	var item =  */
+					 	var item =  
 						$('#cl').append("<option value ='"+obj.CId+"'>"+obj.CCl+"</option>");
 				}
 			}
 		})	
-	});
+	});*/
 	function validate(){
+		
 		$('#form-admin-add').submit();
 		/* return false; */
+		return true;
 	}
 </script> 
 <!--/请在上方写此页面业务相关的脚本-->

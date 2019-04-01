@@ -7,14 +7,39 @@ $(function(){
     zs()
     
     //初始化菜单
-     $.ajax({
+     /*$.ajax({
     	 type: "POST",
          url: $('.nav.nav-pills').find('li:first a').attr('href'),
          success: function(rs){
         	 console.log(rs);
          }
-     })
-        
+     })*/
+    $('.cls').on("click",function(ev,$cd){
+    	$.ajax({
+       	 type: "POST",
+            url: $(this).data('src'),
+            success: function(rs){
+				$('.row .col-md-6').children().remove();
+                for ( var i = 0; i < rs.length; i++) {
+					var obj = rs[i];
+					var cd = '<div class="col-sm-6 col-md-4">'+
+				                '<div class="thumbnail">'+
+				                    '<img src="qt/img/cz1.jpg" style="height: 200px; width: 100%; display: block;" />'+
+				                    '<div class="caption">'+
+				                        '<h3 class="cdmc">'+obj.CCdmc+'</h3>'+
+				                        '<p class="money">价格：'+obj.FJg.toFixed(2)+'</p>'+
+				                        '<p><a href="#" class="btn btn-primary dc" role="button" >点菜</a></p>'+
+				                        '<input type="hidden" name="cdid" value="obj.CId">'+
+				                    '</div>'+
+				               '</div>'+
+				           '</div>';
+					$('.row .col-md-6').append(cd);
+                }
+            }
+        })
+    	
+    })
+    
     $cd.find(".caption .dc").on("click",function(){
         var _this = $(this);
         // debugger;
@@ -48,7 +73,8 @@ $(function(){
 
         // });
         
-    });
+    }); 
+    
     $shopCat.find(".doMinus").on("click",jian);
     $shopCat.find(".doPlus").on("click", ja);
     $shopCat.find(".del").on("click",sc);

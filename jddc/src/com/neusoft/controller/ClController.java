@@ -25,8 +25,7 @@ public class ClController {
 	
 	@Autowired
 	IClService iClService;
-	@Autowired
-	UserMapper userMapper;
+
 	
 	@RequestMapping(params="listCl")
 	public String listCl(Integer index,ModelMap modelmap ){
@@ -48,19 +47,7 @@ public class ClController {
 	}
 	@RequestMapping(params="listClQt")
 	public String listClQt(Integer index,ModelMap modelmap ){
-		int size=5;
-		Map<String,Object> map=new HashMap<String, Object>();
-		int count=iClService.queryCount(map);
-		int total=count%size==0?count/size:count/size+1;
-		if(index==null){
-			index=1;
-		}
-		map.put("start", (index-1)*size);
-		map.put("size", size);
-		
-		List<Cl> cls=iClService.getAllCl(map);
-		modelmap.put("index", index);
-		modelmap.put("total", total);
+		List<Cl> cls=iClService.getAllCl(null);
 		modelmap.put("cls", cls);
 		return "/qt/cdgl";
 	}

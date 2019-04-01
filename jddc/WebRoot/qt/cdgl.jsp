@@ -23,14 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="col-md-3">
                 <ul class="nav nav-pills nav-stacked">
                 	<c:forEach items="${cls}" var="cl" >
-	                    <li role="presentation"><a href="cd.do?listCdByCl&cdid=${cl.CId}">${cl.CCl}</a><i class="glyphicon glyphicon-chevron-right
+	                    <li role="presentation"><a href="#" class="cls" data-src="cd.do?listCdByCl&clid=${cl.CId}">${cl.CCl}</a><i class="glyphicon glyphicon-chevron-right
 	                    "></i></li>
                     </c:forEach>
                 </ul>
             </div>
             <div class="col-md-6">
-                <div class="col-sm-6 col-md-4">
-                    <div class="thumbnail">
+               <%-- <div class="col-sm-6 col-md-4">
+                     <div class="thumbnail">
                         <img src="<%=path%>/qt/img/cz1.jpg" style="height: 200px; width: 100%; display: block;" />
                         <div class="caption">
                             <h3 class="cdmc">餐单1</h3>
@@ -38,8 +38,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <p><a href="#" class="btn btn-primary dc" role="button" >点菜</a></p>
                             <!-- <input type="hidden" name="cdid" value="${item.CId}"> -->
                         </div>
-                    </div>
-                </div>
+                    </div> 
+                </div>--%>
             </div>
             <div class="col-md-3">
                 <div class="right_order_menu">

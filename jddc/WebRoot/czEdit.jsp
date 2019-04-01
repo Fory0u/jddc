@@ -23,45 +23,45 @@
 <link href="ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet"
 	type="text/css" />
 
-<title>编辑菜单</title>
+<title>编辑餐桌</title>
 </head>
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-dish-edit"
-			action="cd.do?editCd" method="post" target="_parent">
+			action="cz.do?editCz" method="post" target="_parent">
 			<div class="row cl" style="display:none;">
 				<label class="form-label col-xs-4 col-sm-3">id：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="${cd.CId}"
-						name="cid" readonly="readonly" style="width: 250px">
+					<input type="text" class="input-text" value="${cz.CId}" name="cid"
+						readonly="readonly" style="width: 250px">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>菜名：</label>
+					class="c-red">*</span>餐桌名：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" required id="cdmc"
-						name="cdmc" value="${cd.CCdmc}" style="width: 250px">
-				</div>
-			</div>
-
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>价格：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="number" class="input-text" step="0.01" required
-						 value="${cd.FJg}" id="jg" name="jg" style="width: 250px">
+					<input type="text" class="input-text" required id="czmc"
+						name="czmc" value="${cz.CCzmc}" style="width: 250px">
 				</div>
 			</div>
 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>菜类：</label>
+					class="c-red">*</span>餐桌人数：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="hidden" id="hid_cl" value="${cd.CCl}" >
-					<select id="cl" name="cl" required style='width:250px;height:30px'  >
-						<!--<option value ="${cd.CCl}">${cd.CCl}</option> 
-						 <option value ="女">女</option>  -->
+					<input type="number" class="input-text" required min="1" max="12"
+						value="${cz.NCzrs}" id="czrs" name="czrs" style="width: 250px">
+				</div>
+			</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-3"><span
+					class="c-red">*</span>餐桌状态：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="hidden" id="hid_czzt" value="${cz.CCzzt}" >
+					<select id="czzt" name="czzt" required
+						style='width:250px;height:30px' >
+						<!-- <option value="1" selected>未预定</option>
+						<option value ="女">女</option>  -->
 					</select>
 				</div>
 			</div>
@@ -108,17 +108,17 @@
 				}
 			});
 			$.ajax({
-				type: "post",
-			  	url: "cl.do?getAllCl",
-				success:function(rs){
+				type : "post",
+				url : "cz.do?getAllCzzt",
+				success : function(rs) {
 					for ( var i = 0; i < rs.length; i++) {
 						var obj = rs[i];
-					/* 	var item =  */
-						var sel = $('#hid_cl').val() == obj.CId ?"selected":"";
-						$('#cl').append("<option value ='"+obj.CId+"' "+sel+">"+obj.CCl+"</option>");
+						/* 	var item =  */
+						var sel = $('#hid_czzt').val() == obj.text ?"selected":"";
+						$('#czzt').append("<option value ='"+obj.value+"' "+sel+">" + obj.text+ "</option>");
+					}
 				}
-			}
-		})	
+			})
 		});
 	</script>
 	<!--/请在上方写此页面业务相关的脚本-->

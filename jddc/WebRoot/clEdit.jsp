@@ -23,48 +23,28 @@
 <link href="ht/lib/Hui-iconfont/1.0.7/iconfont.css" rel="stylesheet"
 	type="text/css" />
 
-<title>编辑菜单</title>
+<title>编辑菜类</title>
 </head>
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-dish-edit"
-			action="cd.do?editCd" method="post" target="_parent">
+			action="cl.do?editCl" method="post" target="_parent">
 			<div class="row cl" style="display:none;">
 				<label class="form-label col-xs-4 col-sm-3">id：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" value="${cd.CId}"
+					<input type="text" class="input-text" value="${cl.CId}"
 						name="cid" readonly="readonly" style="width: 250px">
 				</div>
 			</div>
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>菜名：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="text" class="input-text" required id="cdmc"
-						name="cdmc" value="${cd.CCdmc}" style="width: 250px">
-				</div>
-			</div>
-
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
-					class="c-red">*</span>价格：</label>
-				<div class="formControls col-xs-8 col-sm-9">
-					<input type="number" class="input-text" step="0.01" required
-						 value="${cd.FJg}" id="jg" name="jg" style="width: 250px">
-				</div>
-			</div>
-
-			<div class="row cl">
-				<label class="form-label col-xs-4 col-sm-3"><span
 					class="c-red">*</span>菜类：</label>
 				<div class="formControls col-xs-8 col-sm-9">
-					<input type="hidden" id="hid_cl" value="${cd.CCl}" >
-					<select id="cl" name="cl" required style='width:250px;height:30px'  >
-						<!--<option value ="${cd.CCl}">${cd.CCl}</option> 
-						 <option value ="女">女</option>  -->
-					</select>
+					<input type="text" class="input-text" required id="cl"
+						name="cl" value="${cl.CCl}" style="width: 250px">
 				</div>
 			</div>
+			
 			<div class="row cl">
 				<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
 					<input class="btn btn-primary radius" type="submit"
@@ -107,18 +87,17 @@
 					parent.layer.close(index);
 				}
 			});
-			$.ajax({
+			/*$.ajax({
 				type: "post",
 			  	url: "cl.do?getAllCl",
 				success:function(rs){
 					for ( var i = 0; i < rs.length; i++) {
 						var obj = rs[i];
-					/* 	var item =  */
-						var sel = $('#hid_cl').val() == obj.CId ?"selected":"";
-						$('#cl').append("<option value ='"+obj.CId+"' "+sel+">"+obj.CCl+"</option>");
+					 	var item =  
+						$('#cl').append("<option value ='"+obj.CId+"'>"+obj.CCl+"</option>");
+					}
 				}
-			}
-		})	
+			})	*/
 		});
 	</script>
 	<!--/请在上方写此页面业务相关的脚本-->

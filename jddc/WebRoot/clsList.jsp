@@ -55,7 +55,7 @@
 				--%>
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> 
-						<a href="javascript:;" onclick="admin_add('菜类添加','${pageContext.request.contextPath}/user_add.jsp','600','500')" class="btn btn-primary radius">
+						<a href="javascript:;" onclick="admin_add('菜类添加','${pageContext.request.contextPath}/clAdd.jsp','600','500')" class="btn btn-primary radius">
 							<i class="Hui-iconfont">&#xe600;</i> 添加菜类
 						</a>
 					</span>

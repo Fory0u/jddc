@@ -6,16 +6,19 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.neusoft.mapper.UserMapper;
 import com.neusoft.mapper.CzMapper;
 import com.neusoft.service.ICzService;
+import com.neusoft.vo.Cl;
 import com.neusoft.vo.Cz;
-import com.neusoft.vo.User;
 @Controller
 @RequestMapping("cz.do")
 public class CzController {
@@ -24,7 +27,6 @@ public class CzController {
 	ICzService iCzService;
 	@Autowired
 	UserMapper userMapper;
-
 	@Autowired
 	CzMapper czMapper;	
 	@RequestMapping(params="listCz")
@@ -40,6 +42,7 @@ public class CzController {
 		map.put("size", size);
 		
 		List<Cz> czs=iCzService.getAllCz(map);
+		getCz(czs);
 		modelmap.put("index", index);
 		modelmap.put("total", total);
 		modelmap.put("czs", czs);
@@ -65,7 +68,7 @@ public class CzController {
 		return "/qt/czgl";
 	}
 	/**
-	 * ת������״̬
+	 * ̬将状态单值代码转成状态文字
 	 * @param czs
 	 */
 	private void getCz(List<Cz> czs) {
@@ -123,5 +126,12 @@ public class CzController {
 		return "czEdit";
 	}
 	
+	
+	@ResponseBody
+	@RequestMapping(params="getAllCzzt")
+	public JSONArray getAllCzzt(HttpServletRequest request){
+		List<Map<String,String>> czzts = userMapper.getDzdmMcList("10003");
+		return JSONArray.fromObject(czzts);
+	}
 	
 }
