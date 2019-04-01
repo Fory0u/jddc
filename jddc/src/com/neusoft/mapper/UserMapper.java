@@ -27,6 +27,17 @@ public interface UserMapper {
 	void editUser(Map<String, Object> map);
 
 	int queryRecordCount(Map<String, Object> map);
-	
-	
+	/***
+	 * 根据单值代码类型和序号获得单值名称
+	 * @param dzdmlx
+	 * @param dzdmxh
+	 * @return
+	 */
+	String getDzdmMc(@Param("dzdmlx")String dzdmlx,@Param("dzdmxh")String dzdmxh);
+	/**
+	 * 根据单值代码类型获得单值名称列表
+	 * @param dzdmlx
+	 * @return
+	 */
+	List<Map<String,String>> getDzdmMcList(@Param("dzdmlx")String dzdmlx);
 }

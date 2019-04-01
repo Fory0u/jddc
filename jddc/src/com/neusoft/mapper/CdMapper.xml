@@ -24,7 +24,7 @@
 	
 	<insert id="addCd" parameterType="map">
 		INSERT INTO `jddc`.`t_cd`(`c_id`, `c_cdmc`, `f_jg`, `c_cl`) 
-		VALUES (REPLACE(uuid(),'-',''), #{map.cdmc}, #{map.jg,jdbcType=FLOAT}, (select c_id from t_cl where c_cl = #{map.cl}))
+		VALUES (REPLACE(uuid(),'-',''), #{map.cdmc}, #{map.jg,jdbcType=FLOAT}, #{map.cl})
 	</insert>
 	<delete id="deleteCd" parameterType="String" >
 		delete from t_cd
@@ -35,7 +35,7 @@
 		</where>
 	</delete>
 	<update id="editCd" parameterType="map">
-		UPDATE `jddc`.`t_cd` SET `c_cdmc` =  #{map.cdmc}, `f_jg` =  #{map.jg,jdbcType=FLOAT}, `c_cl` =(select c_id from t_cl where c_cl = #{map.cl})
+		UPDATE `jddc`.`t_cd` SET `c_cdmc` =  #{map.cdmc}, `f_jg` =  #{map.jg,jdbcType=FLOAT}, `c_cl` =#{map.cl}
 		WHERE `c_id` =  #{map.cid}
 	</update>
 	<select id="queryCount" resultType="int">

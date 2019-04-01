@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
@@ -25,20 +25,20 @@
 			href="<%=path%>/ht/lib/icheck/icheck.css" />
 		<link rel="stylesheet" type="text/css"
 			href="<%=path%>/ht/static/h-ui.admin/skin/default/skin.css" id="skin" />
-		<title>用户列表</title>
+		<title>菜类列表</title>
 	</head>
 	<body>
 		<nav class="breadcrumb">
 		<i class="Hui-iconfont">&#xe67f;</i> 首页
-		<span class="c-gray en">&gt;</span> 用户
-		<span class="c-gray en">&gt;</span> 用户列表
+		<span class="c-gray en">&gt;</span> 菜类
+		<span class="c-gray en">&gt;</span> 菜类列表
 		<a class="btn btn-success radius r"
 			style="line-height: 1.6em; margin-top: 3px"
 			href="javascript:location.replace(location.href);" title="刷新"><i
 			class="Hui-iconfont">&#xe68f;</i>
 		</a>
 		</nav>
-		<form action="hospital.do?hospitalUserList" method="post">
+		<form action="" method="post">
 			<div class="page-container">
 				<%--<div class="text-c">
 					<input type="text" class="input-text" style="width: 250px"
@@ -55,8 +55,8 @@
 				--%>
 				<div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> 
-						<a href="javascript:;" onclick="admin_add('用户添加','${pageContext.request.contextPath}/user_add.jsp','600','500')" class="btn btn-primary radius">
-							<i class="Hui-iconfont">&#xe600;</i> 添加用户
+						<a href="javascript:;" onclick="admin_add('菜类添加','${pageContext.request.contextPath}/user_add.jsp','600','500')" class="btn btn-primary radius">
+							<i class="Hui-iconfont">&#xe600;</i> 添加菜类
 						</a>
 					</span>
 				</div>
@@ -64,7 +64,7 @@
 					<thead>
 						<tr>
 							<th scope="col" colspan="9">
-								用户列表
+								菜类列表
 							</th>
 						</tr>
 						<tr class="text-c">
@@ -72,16 +72,7 @@
 								序号
 							</th>
 							<th width="120">
-								登录名
-							</th>
-							<th width="120">
-								姓名
-							</th>
-							<th width="120">
-								密码
-							</th>
-							<th width="120">
-								管理员标记
+								菜类名
 							</th>
 							<th width="100">
 								操作
@@ -89,28 +80,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${users}" var="s" varStatus="ss">
+						<c:forEach items="${cls}" var="s" varStatus="ss">
 							<tr class="text-c">
 								<td class="">
 									${ss.count}
 								</td>
-								<td>
-									${s.CLoginId}
-								</td>
-								<td>
-									${s.CName}
-								</td>
-								<td>
-									${s.CPassword}
-								</td>
-								<td>
-									${s.NLx}
+								<td >
+									${s.CCl}
 								</td>
 								<td class="td-manage">
-									<a title="编辑" href="#"  onclick=" admin_edit('用户编辑','${pageContext.request.contextPath}/user.do?detailUser&cid=${s.CId}','1','600','500') " class="ml-5" style="text-decoration: none;">
+									<a title="编辑" href="#"  onclick=" admin_edit('菜类编辑','${pageContext.request.contextPath}/cl.do?detailCl&cid=${s.CId}','1','600','500') " class="ml-5" style="text-decoration: none;">
 										<i class="Hui-iconfont">&#xe6df;</i>
 									</a>									
-									<a title="删除" href="${pageContext.request.contextPath}/user.do?deleteUser&cid=${s.CId}" onclick="if(confirm('确定要删除吗?')==false)return false;" class="ml-5" style="text-decoration: none">
+									<a title="删除" href="${pageContext.request.contextPath}/cl.do?deleteCl&cid=${s.CId}" onclick="if(confirm('确定要删除吗?')==false)return false;" class="ml-5" style="text-decoration: none">
 									<i class="Hui-iconfont">&#xe6e2;</i>
 									</a>
 								</td>
@@ -119,9 +101,9 @@
 					</tbody>
 				</table>
 				<p align="center">
-					<c:if test="${index-1>0}"><a href="${pageContext.request.contextPath}/user.do?listUser&index=${index-1}">上一页 </a></c:if>
+					<c:if test="${index-1>0}"><a href="${pageContext.request.contextPath}/cl.do?listCl&index=${index-1}">上一页 </a></c:if>
 				      	  总页数：${total}
-					<c:if test="${index<total}"><a href="${pageContext.request.contextPath}/user.do?listUser&index=${index+1}">下一页 </a></c:if>
+					<c:if test="${index<total}"><a href="${pageContext.request.contextPath}/cl.do?listCl&index=${index+1}">下一页 </a></c:if>
 				</p>
 			</div>
 		</form>

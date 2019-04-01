@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
@@ -6,6 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -25,20 +26,20 @@
 			href="<%=path%>/ht/lib/icheck/icheck.css" />
 		<link rel="stylesheet" type="text/css"
 			href="<%=path%>/ht/static/h-ui.admin/skin/default/skin.css" id="skin" />
-		<title>用户列表</title>
+		<title>订单列表</title>
 	</head>
 	<body>
 		<nav class="breadcrumb">
 		<i class="Hui-iconfont">&#xe67f;</i> 首页
-		<span class="c-gray en">&gt;</span> 用户
-		<span class="c-gray en">&gt;</span> 用户列表
+		<span class="c-gray en">&gt;</span> 订单
+		<span class="c-gray en">&gt;</span> 订单列表
 		<a class="btn btn-success radius r"
 			style="line-height: 1.6em; margin-top: 3px"
 			href="javascript:location.replace(location.href);" title="刷新"><i
 			class="Hui-iconfont">&#xe68f;</i>
 		</a>
 		</nav>
-		<form action="hospital.do?hospitalUserList" method="post">
+		<form action="" method="post">
 			<div class="page-container">
 				<%--<div class="text-c">
 					<input type="text" class="input-text" style="width: 250px"
@@ -53,18 +54,18 @@
 					</button>
 				</div>
 				--%>
-				<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<%-- <div class="cl pd-5 bg-1 bk-gray mt-20">
 					<span class="l"> 
-						<a href="javascript:;" onclick="admin_add('用户添加','${pageContext.request.contextPath}/user_add.jsp','600','500')" class="btn btn-primary radius">
-							<i class="Hui-iconfont">&#xe600;</i> 添加用户
+						<a href="javascript:;" onclick="admin_add('订单添加','${pageContext.request.contextPath}/user_add.jsp','600','500')" class="btn btn-primary radius">
+							<i class="Hui-iconfont">&#xe600;</i> 添加订单
 						</a>
 					</span>
-				</div>
+				</div> --%>
 				<table class="table table-border table-bordered table-bg">
 					<thead>
 						<tr>
 							<th scope="col" colspan="9">
-								用户列表
+								订单列表
 							</th>
 						</tr>
 						<tr class="text-c">
@@ -72,56 +73,80 @@
 								序号
 							</th>
 							<th width="120">
-								登录名
+								点菜人
 							</th>
 							<th width="120">
-								姓名
+								餐桌名称
+							</th>
+							<th width="200">
+								点菜信息(以分号隔开)
 							</th>
 							<th width="120">
-								密码
+								点菜数量(以分号隔开)
 							</th>
 							<th width="120">
-								管理员标记
+								总价
 							</th>
-							<th width="100">
+							<th width="120">
+								总数
+							</th>
+							<th width="120">
+								订单状态
+							</th>
+							<th width="120">
+								创建时间
+							</th>
+							<!-- <th width="100">
 								操作
-							</th>
+							</th> -->
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${users}" var="s" varStatus="ss">
+						<c:forEach items="${orders}" var="s" varStatus="ss">
 							<tr class="text-c">
 								<td class="">
 									${ss.count}
 								</td>
-								<td>
-									${s.CLoginId}
+								<td >
+									${s.c_user}
 								</td>
-								<td>
-									${s.CName}
+								<td >
+									${s.c_czmc}
 								</td>
-								<td>
-									${s.CPassword}
+								<td >
+									${s.c_dcxx}
 								</td>
-								<td>
-									${s.NLx}
+								<td >
+									${s.c_dcsl}
 								</td>
-								<td class="td-manage">
-									<a title="编辑" href="#"  onclick=" admin_edit('用户编辑','${pageContext.request.contextPath}/user.do?detailUser&cid=${s.CId}','1','600','500') " class="ml-5" style="text-decoration: none;">
+								<td >
+									${s.f_zj}元
+								</td>
+								<td >
+									共${s.n_zs}样
+								</td>
+								<td >
+									${s.c_ddzt}
+								</td>
+								<td >
+									<fmt:formatDate value="${s.d_cjsj}" pattern="yyyy-MM-dd HH:mm:ss"/>
+								</td>
+								<%-- <td class="td-manage">
+									<a title="编辑" href="#"  onclick=" admin_edit('订单编辑','${pageContext.request.contextPath}/order.do?detailOrder&cid=${s.CId}','1','600','500') " class="ml-5" style="text-decoration: none;">
 										<i class="Hui-iconfont">&#xe6df;</i>
 									</a>									
-									<a title="删除" href="${pageContext.request.contextPath}/user.do?deleteUser&cid=${s.CId}" onclick="if(confirm('确定要删除吗?')==false)return false;" class="ml-5" style="text-decoration: none">
+									<a title="删除" href="${pageContext.request.contextPath}/order.do?deleteOrder&cid=${s.CId}" onclick="if(confirm('确定要删除吗?')==false)return false;" class="ml-5" style="text-decoration: none">
 									<i class="Hui-iconfont">&#xe6e2;</i>
 									</a>
-								</td>
+								</td> --%>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<p align="center">
-					<c:if test="${index-1>0}"><a href="${pageContext.request.contextPath}/user.do?listUser&index=${index-1}">上一页 </a></c:if>
+					<c:if test="${index-1>0}"><a href="${pageContext.request.contextPath}/order.do?listOrder&index=${index-1}">上一页 </a></c:if>
 				      	  总页数：${total}
-					<c:if test="${index<total}"><a href="${pageContext.request.contextPath}/user.do?listUser&index=${index+1}">下一页 </a></c:if>
+					<c:if test="${index<total}"><a href="${pageContext.request.contextPath}/order.do?listOrder&index=${index+1}">下一页 </a></c:if>
 				</p>
 			</div>
 		</form>

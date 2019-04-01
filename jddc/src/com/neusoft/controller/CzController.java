@@ -4,20 +4,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.ICzService;
 import com.neusoft.vo.Cz;
+import com.neusoft.vo.User;
 @Controller
 @RequestMapping("cz.do")
 public class CzController {
 	
 	@Autowired
 	ICzService iCzService;
+	@Autowired
+	UserMapper userMapper;
 	
 	@RequestMapping(params="listCz")
 	public String listCz(Integer index,ModelMap modelmap ){
@@ -56,6 +62,7 @@ public class CzController {
 		return "/qt/czgl";
 	}
 	
+	
 	@RequestMapping(params="addCz")
 	public String addCz(String czmc,String czzt,Integer czrs,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();
@@ -85,6 +92,7 @@ public class CzController {
 			return "no";
 		}
 	}
+	
 	@RequestMapping(params="deleteCz")
 	public String deleteCz(String cid,ModelMap modelmap ){
 		int count = iCzService.deleteCz(cid);
@@ -94,4 +102,14 @@ public class CzController {
 			return "no";
 		}
 	}
+	
+	@RequestMapping(params="detailCz")
+	public String detailUser(String cid,HttpServletRequest request){
+		Cz cz=iCzService.getCzById(cid);
+		cz.setCCzzt(userMapper.getDzdmMc("10003", cz.getCCzzt()));
+		request.setAttribute("cz", cz);
+		return "czEdit";
+	}
+	
+	
 }

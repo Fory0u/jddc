@@ -22,9 +22,8 @@
 </head>
 <body>
 <div class="page-container">
-	
+	<h3>欢迎使用酒店点菜后台管理系统  ！</h3>
 </div>
-</footer>
 <script type="text/javascript" src="<%=path%>/ht/lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="<%=path%>/ht/static/h-ui/js/H-ui.js"></script> 
 <script>

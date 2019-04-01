@@ -4,13 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -88,6 +88,13 @@ public class CdController {
 		}else{
 			return "no";
 		}
+	}
+	
+	@RequestMapping(params="detailCd")
+	public String detailUser(String cid,HttpServletRequest request){
+		Cd cd=iCdService.getCdById(cid);
+		request.setAttribute("cd", cd);
+		return "cdEdit";
 	}
 	
 	

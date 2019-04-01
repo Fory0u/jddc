@@ -62,4 +62,10 @@
 			 and userNo=#{userNo}
 		  </if>
 	</select>
+	<select id="getDzdmMc" parameterType="String" resultType="String">
+		SELECT c_mc FROM t_dzdm WHERE n_bh = #{dzdmlx} and n_bh_lx = #{dzdmxh}
+	</select>
+	<select id="getDzdmMcList" parameterType="hashmap" resultType="String">
+		SELECT n_bh_lx as value,c_mc as text FROM t_dzdm WHERE n_bh = #{dzdmlx} 
+	</select>
 </mapper>

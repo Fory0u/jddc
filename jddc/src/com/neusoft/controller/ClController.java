@@ -4,13 +4,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
+
+
+import net.sf.json.JSONArray;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.IClService;
-import com.neusoft.vo.Cd;
 import com.neusoft.vo.Cl;
 @Controller
 @RequestMapping("cl.do")
@@ -18,6 +25,8 @@ public class ClController {
 	
 	@Autowired
 	IClService iClService;
+	@Autowired
+	UserMapper userMapper;
 	
 	@RequestMapping(params="listCl")
 	public String listCl(Integer index,ModelMap modelmap ){
@@ -88,4 +97,18 @@ public class ClController {
 			return "no";
 		}
 	}
+	
+	@RequestMapping(params="detailCl")
+	public String detailUser(String cid,HttpServletRequest request){
+		Cl cl=iClService.getClById(cid);
+		request.setAttribute("cl", cl);
+		return "clEdit";
+	}
+	@ResponseBody
+	@RequestMapping(params="getAllCl")
+	public JSONArray getAllCl(HttpServletRequest request){
+		List<Cl> cls=iClService.getAllCl(null);
+		return JSONArray.fromObject(cls);
+	}
+	
 }
