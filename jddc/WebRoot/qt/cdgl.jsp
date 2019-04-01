@@ -12,8 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>酒店菜单管理页面</title>
     <script src="<%=path%>/qt/res/jquery/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/cdList.css" />
-	<script src="js/order.js"></script>
+	<link rel="stylesheet" href="<%=path%>/qt/css/cdList.css" />
+	<script src="<%=path%>/qt/js/order.js"></script>
 </head>
 
 <body>
@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="col-md-6">
                 <div class="col-sm-6 col-md-4">
                     <div class="thumbnail">
-                        <img src="../img/cz1.jpg" style="height: 200px; width: 100%; display: block;" />
+                        <img src="<%=path%>/qt/img/cz1.jpg" style="height: 200px; width: 100%; display: block;" />
                         <div class="caption">
                             <h3 class="cdmc">餐单1</h3>
                             <p class="money">价格：10</p>

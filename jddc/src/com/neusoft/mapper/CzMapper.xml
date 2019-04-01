@@ -51,4 +51,7 @@
 			</if>
 		</where>
 	</select>
+	<select id="selectCzzt" parameterType="String" resultType="String">
+		SELECT c_mc FROM t_dzdm WHERE n_bh = 10003 and n_bh_lx = #{czzt}
+	</select>
 </mapper>

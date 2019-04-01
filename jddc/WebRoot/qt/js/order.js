@@ -6,6 +6,15 @@ $(function(){
     var dcsl = "";
     zs()
     
+    //初始化菜单
+     $.ajax({
+    	 type: "POST",
+         url: $('.nav.nav-pills').find('li:first a').attr('href'),
+         success: function(rs){
+        	 console.log(rs);
+         }
+     })
+        
     $cd.find(".caption .dc").on("click",function(){
         var _this = $(this);
         // debugger;
@@ -21,9 +30,9 @@ $(function(){
                     '<div class="del"><a href="javascript:void(0);"></a></div>'+
                     '<div class="pro_numbers">'+
                     '<a href="javascript:void(0);" style="cursor: default;"  class="doMinus"> '+
-                    '<img src="img/minus_icon_2s_dis.gif"></a> '+
+                    '<img src="./qt/img/minus_icon_2s_dis.gif"></a> '+
                     '<input type="text" class="pro_numbers_input" value="1" maxlength="4"   disabled="disabled"  > '+
-                    '<a class="doPlus"><img src="img/plus_icon_2s.gif"></a>'+
+                    '<a class="doPlus"><img src="./qt/img/plus_icon_2s.gif"></a>'+
                     '</div>'+
                     '<div class="price">'+_this[0].parentNode.parentNode.children[1].innerHTML+'</div>'+
                     '<input type="hidden" value='+_this.eq(0).parents().eq(1).find('input').val()+'>'+

@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
 import com.neusoft.mapper.UserMapper;
+import com.neusoft.mapper.CzMapper;
 import com.neusoft.service.ICzService;
 import com.neusoft.vo.Cz;
 import com.neusoft.vo.User;
@@ -24,7 +24,9 @@ public class CzController {
 	ICzService iCzService;
 	@Autowired
 	UserMapper userMapper;
-	
+
+	@Autowired
+	CzMapper czMapper;	
 	@RequestMapping(params="listCz")
 	public String listCz(Integer index,ModelMap modelmap ){
 		int size=5;
@@ -56,12 +58,22 @@ public class CzController {
 		map.put("size", size);
 		
 		List<Cz> czs=iCzService.getAllCz(map);
+		getCz(czs);
 		modelmap.put("index", index);
 		modelmap.put("total", total);
 		modelmap.put("czs", czs);
 		return "/qt/czgl";
 	}
-	
+	/**
+	 * ×ª»»²Í×À×´Ì¬
+	 * @param czs
+	 */
+	private void getCz(List<Cz> czs) {
+		// TODO Auto-generated method stub
+		for (Cz cz : czs) {
+			cz.setCCzzt(czMapper.selectCzzt(cz.getCCzzt()));
+		}
+	}
 	
 	@RequestMapping(params="addCz")
 	public String addCz(String czmc,String czzt,Integer czrs,ModelMap modelmap ){
