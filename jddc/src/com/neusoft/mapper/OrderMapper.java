@@ -20,5 +20,6 @@ public interface OrderMapper {
 	int queryCount(@Param("map")Map<String, Object> map);
 	
 	int queryCountOrdersByRyid(@Param("map")Map<String, Object> map);
+	int editOrderDdzt(@Param("map")Map<String, Object> map);
 	
 }

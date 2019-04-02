@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import net.sf.json.JSONArray;
 
@@ -77,7 +78,13 @@ public class CzController {
 			cz.setCCzzt(czMapper.selectCzzt(cz.getCCzzt()));
 		}
 	}
-	
+	@RequestMapping(params="getCzIdtoCd")
+	public String getCzIdtoCd(String czid,ModelMap modelmap,HttpSession session){
+		Cz cz = iCzService.getCzById(czid);
+//		modelmap.put("cz", cz);
+		session.setAttribute("cz", cz);
+		return "redirect:cl.do?listClQt";
+	}
 	@RequestMapping(params="addCz")
 	public String addCz(String czmc,String czzt,Integer czrs,ModelMap modelmap ){
 		Map<String,Object> map=new HashMap<String, Object>();

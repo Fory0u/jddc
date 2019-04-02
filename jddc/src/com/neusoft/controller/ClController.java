@@ -46,7 +46,7 @@ public class ClController {
 		return "clsList";
 	}
 	@RequestMapping(params="listClQt")
-	public String listClQt(Integer index,ModelMap modelmap ){
+	public String listClQt(Integer index,ModelMap  modelmap ){
 		List<Cl> cls=iClService.getAllCl(null);
 		modelmap.put("cls", cls);
 		return "/qt/cdgl";

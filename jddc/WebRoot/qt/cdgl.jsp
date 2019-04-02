@@ -1,3 +1,5 @@
+<%@page import="com.sun.xml.internal.ws.client.RequestContext"%>
+<%@page import="org.junit.runner.Request"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
@@ -92,13 +94,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-    <form style="display: none" id="orderForm" >
+    <form style="-display: none" id="orderForm" >
         <input name="dcxx" type="text" value="">
         <input name="dcsl" type="text" value="">
-        <!-- <input name="user" type="text" value="${loginUser.CId}"> -->
-        <input name="user" type="text" value="-1">
-        <!-- <input name="czmc" type="text" value="${cz.CId}"> -->
-        <input name="czmc" type="text" value="1">
+        <input name="user" type="text" value="${loginUser.CId}">
+        <!-- <input name="user" type="text" value="-1"> -->
+        <input name="czmc" type="text" value="${cz.CId}">
+        <!-- <input name="czmc" type="text" value="1"> -->
         <input name="ddzt" type="text" value="未结账">
         <input type="text" name="qt" value="qt">
     </form>

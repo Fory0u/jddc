@@ -40,10 +40,10 @@
 						</c:otherwise>
 					</c:choose>
 						<div class="caption">
-							<input type="text" value="${cz.CId }">
+							<input type="hidden" value="${cz.CId}">
 							<h3>${cz.CCzmc }</h3>
 							<p>餐桌状态：${cz.CCzzt }</p> 
-							<p><a href="#" class="btn btn-primary" role="button" <c:if test="${cz.CCzzt == '有客'}">disabled="disabled"</c:if> >入座</a></p>
+							<p><a href="<%=path%>/cz.do?getCzIdtoCd&czid=${cz.CId}" class="btn btn-primary " role="button" <c:if test="${cz.CCzzt == '有客'}">disabled="disabled"</c:if> >入座</a></p>
 						</div>
 					</div>
 				</div>
@@ -52,6 +52,10 @@
 	</div>
 	<c:import url="footer.jsp"></c:import>
 </body>
+
+<script type="text/javascript">
+	
+</script>
 </html>
 
 

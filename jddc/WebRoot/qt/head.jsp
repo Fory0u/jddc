@@ -37,20 +37,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <ul class="breadcrumb" style="text-align: right;">
         <li><a href="<%=path%>/qt/register.jsp"><span class="glyphicon glyphicon-user"></span>注册</a></li>
 		<c:if test="${loginUser==null}">
-    	    <li><a href="/login.jsp"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+    	    <li><a href="<%=basePath%>login.jsp"><span class="glyphicon glyphicon-log-in"></span>登录</a></li>
     	</c:if>
         <c:if test="${loginUser!=null}">
             <li><i class="layui-icon layui-icon-username iphone-icon"></i>${loginUser.CName}</li>
-            <li><a href="user.do?qiehuan">切换账户</a></li>
+            <li><a href="<%=path%>/user.do?qiehuan">切换账户</a></li>
         </c:if>
-        <li><a href="order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
+        <li><a href="<%=path%>/order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}"><span class="glyphicon glyphicon-shopping-cart"></span> 我的订单</a></li>
     </ul>
     <div class="form-inline">
         <div class="header">
             <div class="headerLayout ">
                 <div class="headerCon">
                     <h1 class="mallLogo">
-                        <a href="#" title="酒店点菜系统">
+                        <a href="<%=path%>/qt/czgl.jsp" title="酒店点菜系统">
                            	 酒店点菜系统
                         </a>
                     </h1>
@@ -72,13 +72,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="navbar-collapse collapse" >
         <ul class="nav navbar-nav" >
             <li class="">
-                <a href="cz.do?listCzQt">餐桌管理</a>
+                <a href="<%=path%>/cz.do?listCzQt">餐桌管理</a>
             </li>
             <li class="">
-                <a href="cl.do?listClQt">菜单管理</a>
+                <a href="<%=path%>/cl.do?listClQt">菜单管理</a>
             </li>
             <li class="">
-                <a href="order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}">订单管理</a>
+                <a href="<%=path%>/order.do?listOrderByRyid&index=1&ryid=${loginUser.CId}">订单管理</a>
             </li>
         </ul>
     </div>

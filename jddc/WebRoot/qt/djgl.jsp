@@ -43,10 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<td>${o.c_ddzt}</td>
 						<td>${o.d_cjsj}</td>
 						<c:if test="${o.c_ddzt == '未结账'}">
-							<td><a href="#">结算</a></td>
+							<td><a href="<%=path%>/order.do?editOrderDdzt&ddzt=已结账&cid=${o.c_id}">结算</a></td>
 						</c:if>
 						<c:if test="${o.c_ddzt != '未结账'}">
-							<td><a href="#">删除</a></td>
+							<td><a href="<%=path%>/order.do?deleteOrder&cid=${o.c_id}">删除</a></td>
 						</c:if>
 					</tr>
 				</c:forEach>

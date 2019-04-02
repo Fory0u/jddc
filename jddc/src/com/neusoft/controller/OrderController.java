@@ -1,6 +1,5 @@
 package com.neusoft.controller;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,20 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.neusoft.mapper.CdMapper;
 import com.neusoft.mapper.CzMapper;
+import com.neusoft.mapper.OrderMapper;
 import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.IOrderService;
 import com.neusoft.vo.Cd;
-import com.neusoft.vo.Order;
 @Controller
-@RequestMapping("order.do")
+@RequestMapping("/order.do")
 public class OrderController {
 	
 	@Autowired
 	IOrderService iOrderService;
-	
+	@Autowired
+	OrderMapper orderMapper;
 	@Autowired
 	CdMapper cdMapper;
 	@Autowired
@@ -73,6 +74,7 @@ public class OrderController {
 		modelmap.put("orders", orders);
 		return "/qt/djgl";
 	}
+	@ResponseBody
 	@RequestMapping(params="addOrder")
 	public String addOrder(@RequestBody Map<String,Object> map ,ModelMap modelmap ){
 		getOrder(map);
@@ -80,7 +82,7 @@ public class OrderController {
 		int count = iOrderService.addOrder(map); 
 		if(count >0){
 			if("qt".equals(map.get("qt"))){
-				return "redirect:order.do?listOrderByRyid&ryid="+(String)map.get("ryid")+"&index="+(String)map.get("index");
+				return "redirect:order.do?listOrderByRyid&ryid="+(String)map.get("user")+"&index"+ ((Integer)map.get("index") == null ?"":"="+((Integer)map.get("index")).toString());
 			}
 			return "redirect:order.do?listOrder";
 		}else{
@@ -98,6 +100,20 @@ public class OrderController {
 			return "no";
 		}
 	}
+	
+	@RequestMapping(params="editOrderDdzt")
+	public String editOrderDdzt(@RequestBody Map<String,Object> map,ModelMap modelmap ){
+//		getOrder(map);
+//		map.put("dcsj", new Date());
+		int count = orderMapper.editOrderDdzt(map);
+		if(count >0){
+			return "redirect:order.do?listOrder";
+		}else{
+			return "no";
+		}
+	}
+	
+	
 	@RequestMapping(params="deleteOrder")
 	public String deleteOrder(String cid,ModelMap modelmap ){
 		int count = iOrderService.deleteOrder(cid);
