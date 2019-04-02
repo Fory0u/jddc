@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,7 @@ import com.neusoft.mapper.OrderMapper;
 import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.IOrderService;
 import com.neusoft.vo.Cd;
+import com.neusoft.vo.User;
 @Controller
 @RequestMapping("/order.do")
 public class OrderController {
@@ -56,33 +59,36 @@ public class OrderController {
 	}
 	@RequestMapping(params="listOrderByRyid")
 	public String listOrderByRyid(Integer index,String ryid,ModelMap modelmap ){
-		int size=5;
+//		int size=5;
 		Map<String,Object> map=new HashMap<String, Object>();
 		map.put("ryid", ryid);
-		int count=iOrderService.queryCountOrdersByRyid(map);
-		int total=count%size==0?count/size:count/size+1;
-		if(index==null){
-			index=1;
-		}
-		map.put("start", (index-1)*size);
-		map.put("size", size);
+//		int count=iOrderService.queryCountOrdersByRyid(map);
+//		int total=count%size==0?count/size:count/size+1;
+//		if(index==null){
+//			index=1;
+//		}
+//		map.put("start", (index-1)*size);
+//		map.put("size", size);
 		List<Map<String,Object>> orders=iOrderService.getAllOrder(map);
 		//将orders中的代码进行映射
 		getOrderList(orders);
-		modelmap.put("index", index);
-		modelmap.put("total", total);
+//		modelmap.put("index", index);
+//		modelmap.put("total", total);
 		modelmap.put("orders", orders);
-		return "/qt/djgl";
+		return "/qt/ddgl";
 	}
 	@ResponseBody
 	@RequestMapping(params="addOrder")
-	public String addOrder(@RequestBody Map<String,Object> map ,ModelMap modelmap ){
+	public Object addOrder(@RequestBody Map<String,Object> map ,ModelMap modelmap ){
+		Map<String,String> rs = new HashMap<String,String>();
 		getOrder(map);
 //		map.put("dcsj", new Date());
 		int count = iOrderService.addOrder(map); 
-		if(count >0){
+		int countCzzt = czMapper.updateCzztByCZid("2",(String)map.get("czmc"));
+		if(count >0 && countCzzt>0){
 			if("qt".equals(map.get("qt"))){
-				return "redirect:order.do?listOrderByRyid&ryid="+(String)map.get("user")+"&index"+ ((Integer)map.get("index") == null ?"":"="+((Integer)map.get("index")).toString());
+				rs.put("index", ((Integer)map.get("index") == null ?"":((Integer)map.get("index")).toString()));
+				return rs;
 			}
 			return "redirect:order.do?listOrder";
 		}else{
@@ -102,17 +108,28 @@ public class OrderController {
 	}
 	
 	@RequestMapping(params="editOrderDdzt")
-	public String editOrderDdzt(@RequestBody Map<String,Object> map,ModelMap modelmap ){
+	public String editOrderDdzt(String ddzt,String cid,ModelMap modelmap,HttpSession session ){
 //		getOrder(map);
 //		map.put("dcsj", new Date());
-		int count = orderMapper.editOrderDdzt(map);
-		if(count >0){
-			return "redirect:order.do?listOrder";
+		User user = (User) session.getAttribute("loginUser");
+		int count = orderMapper.editOrderDdzt(ddzt,cid);
+		int countCzzt = czMapper.updateCzztByDDid("1",cid);
+		if(count >0 && countCzzt>0){
+			return "redirect:order.do?listOrderByRyid&ryid="+user.getCId();
 		}else{
 			return "no";
 		}
 	}
-	
+	@RequestMapping(params="deleteOrderQt")
+	public String deleteOrderQt(String cid,ModelMap modelmap,HttpSession session){
+		User user = (User) session.getAttribute("loginUser");
+		int count = iOrderService.deleteOrder(cid);
+		if(count >0){
+			return "redirect:order.do?listOrderByRyid&ryid="+user.getCId();
+		}else{
+			return "no";
+		}
+	}
 	
 	@RequestMapping(params="deleteOrder")
 	public String deleteOrder(String cid,ModelMap modelmap ){
@@ -129,7 +146,7 @@ public class OrderController {
 		String dcsl =(String)map.get("dcsl");
 		String[] dcxxArr =  new String[]{};
 		String[] dcslArr =  new String[]{};
-		Float zj =0.0f; 
+		Float zj =9.0f; 
 		Integer zs = 0;
 		if(dcxx != null ){
 			dcxxArr = dcxx.split("\\;+");

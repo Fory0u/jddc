@@ -19,6 +19,9 @@ public interface CzMapper {
 	int queryCount(@Param("map")Map<String, Object> map);
 	
 	String selectCzzt(@Param("czzt")String czzt);
+	int updateCzztByDDid(@Param("czzt")String czzt,@Param("cid")String cid);
+	int updateCzztByCZid(@Param("czzt")String czzt, @Param("czid")String czid);
+	
 	
 	
 }

@@ -76,7 +76,10 @@ $(function(){
             data:json,
             contentType: "application/json;charset=UTF-8", //缺失会出现URL编码，无法转成json对象
             success:function(rs){
-            	window.location.href = getHref()+'cz.do?listCzQt'
+            	var index = '';
+            	if(rs && rs.index && rs.index !=null && rs.index !='')
+            		index ='&index='+rs.index;
+            	window.location.href = getHref()+'order.do?listOrderByRyid&ryid='+$('input[name="user"]').val()+index;
 //                console.log(rs)
                 // alert("成功");
             }

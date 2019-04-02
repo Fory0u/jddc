@@ -41,7 +41,21 @@
 		`c_czzt` = #{map.czzt},
 		`n_czrs` = #{map.czrs,jdbcType=INTEGER}
 		WHERE
-			`c_id` = #{map.cid};
+			`c_id` = #{map.cid}
+	</update>
+	<update id="updateCzztByDDid" parameterType="String" >
+		UPDATE `jddc`.`t_cz` 
+		SET 
+		`c_czzt` = #{czzt}
+		WHERE
+		`c_id` = ( SELECT c_czmc FROM t_order WHERE c_id = #{cid} )
+	</update>
+	<update id="updateCzztByCZid" parameterType="String" >
+		UPDATE `jddc`.`t_cz` 
+		SET 
+		`c_czzt` = #{czzt}
+		WHERE
+		`c_id` = #{czid}
 	</update>
 	<select id="queryCount" resultType="int">
 		SELECT count(1) FROM t_cz 
