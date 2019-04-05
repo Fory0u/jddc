@@ -13,8 +13,8 @@ import com.neusoft.vo.Order;
 
 @Transactional
 @Service("IOrderService")
-public class OrderServiceImpl implements IOrderService{
-	
+public class OrderServiceImpl implements IOrderService {
+
 	@Autowired
 	OrderMapper orderMapper;
 
@@ -25,15 +25,15 @@ public class OrderServiceImpl implements IOrderService{
 	}
 
 	@Override
-	public List<Map<String,Object>> getAllOrder(Map<String, Object> map) {
+	public List<Map<String, Object>> getAllOrder(Map<String, Object> map) {
 		// TODO Auto-generated method stub
 		return orderMapper.getAllOrder(map);
 	}
 
 	@Override
-	public int addOrder(Map<String, Object> map) {
+	public int addOrder(Order o) {
 		// TODO Auto-generated method stub
-		return orderMapper.addOrder(map);
+		return orderMapper.addOrder(o);
 	}
 
 	@Override
@@ -59,7 +59,5 @@ public class OrderServiceImpl implements IOrderService{
 		// TODO Auto-generated method stub
 		return orderMapper.queryCountOrdersByRyid(map);
 	}
-
-	
 
 }

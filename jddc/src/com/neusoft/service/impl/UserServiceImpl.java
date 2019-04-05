@@ -14,17 +14,18 @@ import com.neusoft.vo.User;
 
 @Transactional
 @Service("IUserService")
-public class UserServiceImpl implements IUserService{
+public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	private UserMapper userMapper;
-//	@Override
-//	public int getCheckAccount(String userNo) {
-//		return userMapper.getCheckAccount(userNo);
-//	}
+
+	// @Override
+	// public int getCheckAccount(String userNo) {
+	// return userMapper.getCheckAccount(userNo);
+	// }
 
 	@Override
-	public	User getLogin(String loginid,String loginPwd) {
+	public User getLogin(String loginid, String loginPwd) {
 		return userMapper.getLogin(loginid, loginPwd);
 	}
 
@@ -36,22 +37,22 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public List<User> getUserList(Integer index, int size, String userName,
 			String userAgender) {
-		
-		Map<String, Object> map=new HashMap<String, Object>();
-		 if(index==null){
-	    	  index=0;
-	      }
-	       map.put("userName", userName);
-	       map.put("userAgender",userAgender);
-	       map.put("start",(index-1)*size);
-	       map.put("pagesize",size);
-	       List<User> list=userMapper.getUserList(map);
-	     return list;
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (index == null) {
+			index = 0;
+		}
+		map.put("userName", userName);
+		map.put("userAgender", userAgender);
+		map.put("start", (index - 1) * size);
+		map.put("pagesize", size);
+		List<User> list = userMapper.getUserList(map);
+		return list;
 	}
 
 	@Override
 	public void addUser(Map<String, Object> map) {
-        userMapper.addUser(map);		
+		userMapper.addUser(map);
 	}
 
 	@Override
@@ -73,7 +74,5 @@ public class UserServiceImpl implements IUserService{
 	public int queryRecordCount(Map<String, Object> map) {
 		return userMapper.queryRecordCount(map);
 	}
-
-
 
 }

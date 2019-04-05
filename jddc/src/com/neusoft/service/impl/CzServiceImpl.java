@@ -13,8 +13,8 @@ import com.neusoft.vo.Cz;
 
 @Transactional
 @Service("ICzService")
-public class CzServiceImpl implements ICzService{
-	
+public class CzServiceImpl implements ICzService {
+
 	@Autowired
 	CzMapper czMapper;
 

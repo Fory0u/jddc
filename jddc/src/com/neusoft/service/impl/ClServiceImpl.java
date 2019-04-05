@@ -13,8 +13,8 @@ import com.neusoft.vo.Cl;
 
 @Transactional
 @Service("IClService")
-public class ClServiceImpl implements IClService{
-	
+public class ClServiceImpl implements IClService {
+
 	@Autowired
 	ClMapper clMapper;
 
@@ -47,6 +47,7 @@ public class ClServiceImpl implements IClService{
 		// TODO Auto-generated method stub
 		return clMapper.editCl(map);
 	}
+
 	@Override
 	public int queryCount(Map<String, Object> map) {
 		// TODO Auto-generated method stub

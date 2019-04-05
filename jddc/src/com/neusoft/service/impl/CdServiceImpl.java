@@ -14,8 +14,8 @@ import com.neusoft.vo.Cd;
 
 @Transactional
 @Service("ICdService")
-public class CdServiceImpl implements ICdService{
-	
+public class CdServiceImpl implements ICdService {
+
 	@Autowired
 	CdMapper cdMapper;
 
@@ -54,6 +54,5 @@ public class CdServiceImpl implements ICdService{
 		// TODO Auto-generated method stub
 		return cdMapper.queryCount(map);
 	}
-	
-	
+
 }

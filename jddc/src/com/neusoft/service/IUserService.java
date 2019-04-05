@@ -9,9 +9,9 @@ import com.neusoft.vo.User;
 
 public interface IUserService {
 
-//	int getCheckAccount(String userNo);
+	// int getCheckAccount(String userNo);
 
-	User getLogin(String loginid,String loginPwd);
+	User getLogin(String loginid, String loginPwd);
 
 	int queryCount(Map<String, Object> map);
 
@@ -27,7 +27,5 @@ public interface IUserService {
 	void editUser(Map<String, Object> map);
 
 	int queryRecordCount(Map<String, Object> map);
-	
-	
 
 }

@@ -32,7 +32,7 @@ $(function(){
 				                        '<h3 class="cdmc">'+obj.CCdmc+'</h3>'+
 				                        '<p class="money">价格：'+obj.FJg.toFixed(2)+'</p>'+
 				                        '<p><a href="javascript:void(0);" class="btn btn-primary dc" role="button" onclick="dc(this)">点菜</a></p>'+
-				                        '<input type="hidden" name="cdid" value="'+obj.CId+'">'+
+				                        '<input type="text" name="cdid" value="'+obj.CId+'">'+
 				                    '</div>'+
 				               '</div>'+
 				           '</div>';
@@ -62,6 +62,8 @@ $(function(){
         }
     })();
     
+    
+    
 })
   function getHref(){
 	return  window.location.protocol + '//' + window.location.host +   window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1)+'/'
@@ -76,16 +78,31 @@ $(function(){
             data:json,
             contentType: "application/json;charset=UTF-8", //缺失会出现URL编码，无法转成json对象
             success:function(rs){
-            	var index = '';
-            	if(rs && rs.index && rs.index !=null && rs.index !='')
-            		index ='&index='+rs.index;
-            	window.location.href = getHref()+'order.do?listOrderByRyid&ryid='+$('input[name="user"]').val()+index;
+//            	var index = '';
+//            	if(rs && rs.index && rs.index !=null && rs.index !='')
+//            		index ='&index='+rs.index;
+            	if(rs && rs.orderId && rs.orderId !=null && rs.orderId !='')
+            		window.location.href = getHref()+'order.do?ddjs&orderId='+rs.orderId;
+//            	window.location.href = getHref()+'order.do?listOrderByRyid&ryid='+$('input[name="user"]').val()+index;
 //                console.log(rs)
                 // alert("成功");
             }
         });
     }
 	function sc (){
+        var _this = $(this);
+    	//删除购物车中菜品时恢复点菜对应按钮
+        (function(){
+        	var $dc = $(".caption .dc");
+        	
+        	$dc.each(function(){
+        		if(_this.eq(0).parents().eq(0).find('input:last').val() == $(this).parents().eq(1).find('input').val()){
+        			$(this).removeAttr("disabled");
+        			return false;
+        		}
+            })
+        })();
+		
         $(this).eq(0).parents().eq(0).remove()
         zs();
     }
@@ -133,7 +150,26 @@ $(function(){
         $(".hj").html( (zj + $(".wsf").html()*1).toFixed(2) )
     }
     function dc(e){
+
         var _this = $(e);
+        var flag = false;
+        
+    	//加菜时判断购物车中是否重复
+        (function(){
+        	var $gwcInput = $shopCat.find("li>input");
+
+        	if(!_this.attr("disabled") || _this.attr("disabled") == undefined)
+        		_this.attr("disabled","disabled");
+        	
+        	$gwcInput.each(function(){
+        		if(_this.eq(0).parents().eq(1).find('input').val() == $(this).val()){
+//        			_this.attr("disabled","disabled");
+        			flag = true;
+        			return false;
+        		}
+            })
+        })();
+    	if(flag) return;
         // debugger;
         console.log( )
         // $.ajax({
@@ -152,7 +188,7 @@ $(function(){
                     '<a class="doPlus"><img src="./qt/img/plus_icon_2s.gif"></a>'+
                     '</div>'+
                     '<div class="price">'+_this[0].parentNode.parentNode.children[1].innerHTML+'</div>'+
-                    '<input type="hidden" value='+_this.eq(0).parents().eq(1).find('input').val()+'>'+
+                    '<input type="text" value='+_this.eq(0).parents().eq(1).find('input').val()+'>'+
                     '</li>';
                     $shopCat.append(shopItem)
                     $shopCat.find(".del").off().on("click",sc)
@@ -164,5 +200,8 @@ $(function(){
            // }
 
         // });
+                    
+        
+        
         
     }
