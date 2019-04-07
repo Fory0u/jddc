@@ -13,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.IUserService;
 import com.neusoft.util.CodeUtil;
 import com.neusoft.vo.User;
@@ -23,6 +24,8 @@ public class UserController {
 
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	UserMapper userMapper;
 
 	@ResponseBody
 	@RequestMapping(params = "isLogin")
@@ -55,7 +58,7 @@ public class UserController {
 
 		if (loginUser == null) {
 			return "login";
-		} else if (loginUser.getNLx() == 1) {// 管理员
+		} else if ("1".equals(loginUser.getNLx()) ) {// 管理员
 			return "adminIndex";
 		} else {
 			// return "/qt/czgl";
@@ -73,7 +76,17 @@ public class UserController {
 	public String qiehuan() {
 		return "login";
 	}
-
+	@RequestMapping(params = "register")
+	public String register() {
+		return "/qt/register";
+	}
+//	@ResponseBody
+//	@RequestMapping(params = "register")
+//	public Object register() {
+//		Map<String, String> rs = new HashMap<String, String>();
+//		rs.put("data", "qt/register.jsp");
+//		return rs;
+//	}
 	@RequestMapping(params = "listUser")
 	public String listUser(HttpSession session, Integer index, String userName,
 			String userAgender) {
@@ -88,10 +101,21 @@ public class UserController {
 		}
 		List<User> users = userService.getUserList(index, size, userName,
 				userAgender);
+		changeUserList(users);
 		session.setAttribute("index", index);
 		session.setAttribute("total", total);
 		session.setAttribute("users", users);
 		return "usersList";
+	}
+	/***
+	 * 改变user的标志
+	 * @param users
+	 */
+	private void changeUserList(List<User> users) {
+	// TODO Auto-generated method stub
+		for (int i = 0; i < users.size(); i++) {
+			users.get(i).setNLx(userMapper.getDzdmMc("10005",String.valueOf(users.get(i).getNLx())));
+		}
 	}
 
 	@RequestMapping(params = "addUser")

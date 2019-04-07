@@ -16,7 +16,7 @@
 	
 	<select id="getAllCl" resultMap="BaseResultMap">
 		select `c_id`, `c_cl` from t_cl 
-		<if test="map!=null and map.size()>0 ">
+		<if test="map!=null and map.size()>0 and map.start != null and map.size != null">
 			limit #{map.start},#{map.size}
 		</if>
 	</select>

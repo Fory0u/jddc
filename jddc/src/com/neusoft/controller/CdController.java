@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.neusoft.mapper.CdMapper;
 import com.neusoft.mapper.ClMapper;
 import com.neusoft.service.ICdService;
+import com.neusoft.service.IClService;
 import com.neusoft.vo.Cd;
+import com.neusoft.vo.Cl;
 import com.neusoft.vo.Cz;
 
 @Controller
@@ -30,7 +32,9 @@ public class CdController {
 	CdMapper cdMapper;
 	@Autowired
 	ClMapper clMapper;
-
+	@Autowired
+	IClService iClService;
+	
 	@RequestMapping(params = "listCd")
 	public String listCd(Integer index, ModelMap modelmap) {
 		int size = 5;
@@ -50,7 +54,14 @@ public class CdController {
 		modelmap.put("cds", cds);
 		return "cdsList";
 	}
-
+	@RequestMapping(params = "findMoByCdmc")
+	public String findMoByCdmc(String cdmc, ModelMap modelmap) {
+		List<Cd> cds = cdMapper.findMoByCdmc(cdmc);
+		List<Cl> cls = iClService.getAllCl(null);
+		modelmap.put("cds", cds);
+		modelmap.put("cls", cls);
+		return "/qt/cdgl";
+	}
 	/**
 	 * ̬将状态单值代码转成文字
 	 * 

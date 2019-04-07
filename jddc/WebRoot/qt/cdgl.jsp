@@ -31,6 +31,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </ul>
             </div>
             <div class="col-md-6">
+            	<c:forEach items="${cds}" var="cd" >
+            		<div class="col-sm-6 col-md-4">
+	                     <div class="thumbnail">
+	                        <img src="<%=path%>/qt/img/点心小吃/南瓜饼.jpg" style="height: 200px; width: 100%; display: block;" />
+	                        <div class="caption">
+	                            <h3 class="cdmc">${cd.CCdmc}</h3>
+	                            <p class="money">价格：${cd.FJg}元</p>
+	                            <p><a href="#" class="btn btn-primary dc" role="button" onclick="dc(this)">点菜</a></p>
+	                            <input type="hidden" name="cdid" value="${cd.CId}">
+	                        </div>
+	                    </div> 
+	                </div>
+            	</c:forEach>
                <%-- <div class="col-sm-6 col-md-4">
                      <div class="thumbnail">
                         <img src="<%=path%>/qt/img/cz1.jpg" style="height: 200px; width: 100%; display: block;" />
@@ -94,13 +107,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     </div>
-    <form style="-display: none" id="orderForm" >
+    <form style="display: none" id="orderForm" >
         <input name="dcxx" type="text" value="">
         <input name="dcsl" type="text" value="">
         <input name="user" type="text" value="${loginUser.CId}">
-        <!-- <input name="user" type="text" value="-1"> -->
         <input name="czmc" type="text" value="${cz.CId}">
-        <!-- <input name="czmc" type="text" value="1"> -->
         <input name="ddzt" type="text" value="未结账">
         <input type="text" name="qt" value="qt">
     </form>

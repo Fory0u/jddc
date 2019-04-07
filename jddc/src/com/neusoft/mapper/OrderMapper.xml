@@ -28,6 +28,8 @@
 				c_user = #{map.ryid}
 			</if>
 		</where>
+		
+		ORDER BY d_cjsj desc
 		<if test="map!=null and map.size()>0 and map.start != null and map.size != null">
 			limit #{map.start},#{map.size}
 		</if>

@@ -90,13 +90,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
 
         </div>
-        <form style="-display: none;" id="orderForm" >
+        <form style="display: none;" id="orderForm" >
                 <input type="text" name="cid" value="${order.CId}"><!--订单id ${cd.CId}-->
                 <input name="dcxx" type="text" value="">
                 <input name="dcsl" type="text" value="">
                 <input name="user" type="text" value="${loginUser.CId}">
 		        <input name="czmc" type="text" value="${cz.CId}">
-                <input name="ddzt" type="text" value="已结账">
+                <input name="ddzt" type="text" value="未结账">
                 <input type="text" name="qt" value="qt">
         </form>
     </div>

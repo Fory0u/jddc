@@ -175,8 +175,9 @@ public class OrderController {
 		Map<String, String> rs = new HashMap<String, String>();
 		getOrder(map);
 		User user = (User) session.getAttribute("loginUser");
+		if(user == null)   return "no" ;
 		int count = iOrderService.editOrder(map);
-		int countCzzt = czMapper.updateCzztByCZid("1", (String) map.get("czmc"));
+		int countCzzt = czMapper.updateCzztByCZid("2", (String) map.get("czmc"));
 		// 删除session中的餐桌
 		session.removeAttribute("cz");
 		if (count > 0 && countCzzt > 0 && "qt".equals(map.get("qt"))) {
@@ -230,6 +231,7 @@ public class OrderController {
 		// getOrder(map);
 		// map.put("dcsj", new Date());
 		User user = (User) session.getAttribute("loginUser");
+		if(user == null)   return "login" ;
 		int count = orderMapper.editOrderDdzt(ddzt, cid);
 		int countCzzt = czMapper.updateCzztByDDid("1", cid);
 		// 删除session中的餐桌
@@ -245,6 +247,7 @@ public class OrderController {
 	public String deleteOrderQt(String cid, ModelMap modelmap,
 			HttpSession session) {
 		User user = (User) session.getAttribute("loginUser");
+		if(user == null)   return "login" ;
 		int count = iOrderService.deleteOrder(cid);
 		if (count > 0) {
 			return "redirect:order.do?listOrderByRyid&ryid=" + user.getCId();

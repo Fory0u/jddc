@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<div class="layui-form-mid layui-word-aux">*英文或数字组成</div>
 		</div>
-		<input type="hidden" name="adminFlag" value="1">
+		<input type="hidden" name="adminFlag" value="2">
 		<!-- <div class="layui-form-item">
 			<label class="layui-form-label">单选框</label>
 			<div class="layui-input-block">

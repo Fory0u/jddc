@@ -68,14 +68,13 @@
 							<a href="<%=path%>/qt/czgl.jsp" title="酒店点菜系统"> 酒店点菜系统 </a>
 						</h1>
 						<div class="mallSearch">
-							<form action="" class="layui-form" novalidate="">
-								<input type="text" name="title" required=""
+							<form action="cd.do?findMoByCdmc" method="post" class="layui-form findMoForm" novalidate="">
+								<input type="text" name="cdmc" required=""
 									lay-verify="required" autocomplete="off" class="layui-input"
 									placeholder="请输入需要的菜名">
-								<button class="layui-btn" lay-submit="" lay-filter="formDemo">
+								<button class="layui-btn findMo" lay-submit="" lay-filter="formDemo">
 									<i class="layui-icon layui-icon-search"></i>
 								</button>
-								<input type="hidden" name="" value="">
 							</form>
 						</div>
 					</div>
@@ -95,7 +94,23 @@
 		</div>
 
 	</div>
+
+	<script type="text/javascript">
+		$(function(){
+		    //模糊查询
+		    $(".findMo").on("click",function(){
+		    
+		    	$('.findMoForm').submit();
+		    	//    findMoByCdmc&cdmc=
+		    
+		    });
+		    
+		});
+	
+	</script>
 </body>
+
+
 </html>
 
 

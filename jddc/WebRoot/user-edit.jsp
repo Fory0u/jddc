@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -55,8 +56,8 @@
 		<label class="form-label col-xs-4 col-sm-3">管理员标记：</label>
 		<div class="formControls col-xs-8 col-sm-9">
 		   <select id="adminFlag" class="select" name="adminFlag"  size="1" style="width: 250px">
-				<option value="1">管理员</option>
-				<option value="2">用户</option>
+				<option value="1" <c:if test="${user.NLx == '1'}">selected</c:if> >管理员</option >
+				<option value="2" <c:if test="${user.NLx == '2'}">selected</c:if>>用户</option>
 			</select>
 		</div>
 		

@@ -30,9 +30,9 @@ $(function(){
 				                    '<img src="qt/img/点心小吃/南瓜饼.jpg" style="height: 200px; width: 100%; display: block;" />'+
 				                    '<div class="caption">'+
 				                        '<h3 class="cdmc">'+obj.CCdmc+'</h3>'+
-				                        '<p class="money">价格：'+obj.FJg.toFixed(2)+'</p>'+
+				                        '<p class="money">价格：'+obj.FJg.toFixed(2)+'元</p>'+
 				                        '<p><a href="javascript:void(0);" class="btn btn-primary dc" role="button" onclick="dc(this)">点菜</a></p>'+
-				                        '<input type="text" name="cdid" value="'+obj.CId+'">'+
+				                        '<input type="hidden" name="cdid" value="'+obj.CId+'">'+
 				                    '</div>'+
 				               '</div>'+
 				           '</div>';
@@ -188,7 +188,7 @@ $(function(){
                     '<a class="doPlus"><img src="./qt/img/plus_icon_2s.gif"></a>'+
                     '</div>'+
                     '<div class="price">'+_this[0].parentNode.parentNode.children[1].innerHTML+'</div>'+
-                    '<input type="text" value='+_this.eq(0).parents().eq(1).find('input').val()+'>'+
+                    '<input type="hidden" value='+_this.eq(0).parents().eq(1).find('input').val()+'>'+
                     '</li>';
                     $shopCat.append(shopItem)
                     $shopCat.find(".del").off().on("click",sc)

@@ -15,11 +15,16 @@
 			</if>
 		</where>
 	</select>
+	<select id="findMoByCdmc" resultMap="BaseResultMap">
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd where c_cdmc like concat('%','${cdmc}','%')
+	</select>
 	
 	<select id="getAllCd" resultMap="BaseResultMap">
 		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
 		
-		limit #{map.start},#{map.size}
+		<if test="map!=null and map.size()>0 and map.start != null and map.size != null">
+			limit #{map.start},#{map.size}
+		</if>
 	</select>
 	
 	<insert id="addCd" parameterType="map">

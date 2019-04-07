@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,8 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<tr>
 					<th style="display:none;">cid</th>
 					<th>餐桌名称</th>
-					<th>点菜信息</th>
-					<th>点菜数量</th>
+					<th>点菜信息(以分号隔开)</th>
+					<th>点菜数量(以分号隔开)</th>
 					<th>总数</th>
 					<th>总价</th>
 					<th>订单状态</th>
@@ -33,15 +34,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</thead>
 			<tbody>
 				<c:forEach items="${orders}" var="o" >
-					<tr >
+					<tr class="<c:if test="${o.c_ddzt == '未结账'}">info</c:if><c:if test="${o.c_ddzt != '未结账'}">active</c:if>" >
 						<td style="display:none;" > ${o.c_id} </td>
 						<td>${o.c_czmc}</td>
 						<td>${o.c_dcxx}</td>
 						<td>${o.c_dcsl}</td>
-						<td>${o.n_zs}</td>
-						<td>${o.f_zj}</td>
+						<td>共${o.n_zs}个</td>
+						<td>共${o.f_zj}元</td>
 						<td>${o.c_ddzt}</td>
-						<td>${o.d_cjsj}</td>
+						<td><fmt:formatDate value="${o.d_cjsj}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
 						<c:if test="${o.c_ddzt == '未结账'}">
 							<td><a href="<%=path%>/order.do?editOrderDdzt&ddzt=%E5%B7%B2%E7%BB%93%E8%B4%A6&cid=${o.c_id}">结算</a></td>
 						</c:if>

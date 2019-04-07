@@ -22,7 +22,7 @@
 <body>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal" action="" method="post"  id="loginForms">
+    <form class="form form-horizontal" action="user.do?register" method="post"  id="loginForms">
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-xs-8">
@@ -39,18 +39,18 @@
         <div class="formControls col-xs-8 col-xs-offset-3" >
           <input type="button"  onclick="checkLogin()" class="btn btn-success radius size-L" value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
           <input type="reset" class="btn btn-default radius size-L" value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
+          <button  class="btn btn-primary radius zc size-L"  >&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;</button>
         </div>
       </div>
       
     </form>
   </div>
 </div>
-<%--<div class="footer"><a href="${pageContext.request.contextPath}/pnindex.jsp">前台连接</a></div>
-<script type="text/javascript" src="ht/lib/jquery/1.9.1/jquery.min.js"></script>--%> 
-<script type="text/javascript" src="ht/static/h-ui/js/H-ui.js"></script> 
+
 
 <script type="text/javascript"
 			src="<%=path%>/ht/lib/jquery/1.9.1/jquery.min.js">
+			
 </script>
 		<script type="text/javascript"
 			src="<%=path%>/ht/lib/layer/2.1/layer.js">
@@ -65,7 +65,22 @@
 			src="<%=path%>/ht/static/h-ui.admin/js/H-ui.admin.js">
 </script>
 <script type="text/javascript">
-
+	$(function(){
+		$('.zc').on("click",function(){
+			/* $.ajax({
+	            url:"${pageContext.request.contextPath}/user.do?register",
+	            type:"POST",
+	            dataType: 'json',
+	            success:function(rs){
+	            console.log(rs);
+	            		//window.location.href=getHref()+rs+".jsp";
+	            }
+	        }); */
+	        $('#loginForms').submit();
+	        
+		})
+		
+	});
 	function checkLogin(){
 		var name = document.getElementById("name").value;
 		var pwd = document.getElementById("pwd").value;
@@ -94,6 +109,14 @@
           
          return  true;
 	}
+
+	/* function zc(){
+			window.top.location.href="${pageContext.request.contextPath}/user.do?register"; 
+			
+	}*/
+	 function getHref(){
+	return  window.location.protocol + '//' + window.location.host +   window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1)+'/'
+}
 </script>
 </body>
 </html>

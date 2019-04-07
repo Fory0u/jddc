@@ -54,20 +54,20 @@ public class CzController {
 
 	@RequestMapping(params = "listCzQt")
 	public String listCzQt(Integer index, ModelMap modelmap) {
-		int size = 5;
+//		int size = 5;
 		Map<String, Object> map = new HashMap<String, Object>();
-		int count = iCzService.queryCount(map);
-		int total = count % size == 0 ? count / size : count / size + 1;
+//		int count = iCzService.queryCount(map);
+//		int total = count % size == 0 ? count / size : count / size + 1;
 		if (index == null) {
 			index = 1;
 		}
-		map.put("start", (index - 1) * size);
-		map.put("size", size);
+//		map.put("start", (index - 1) * size);
+//		map.put("size", size);
 
 		List<Cz> czs = iCzService.getAllCz(map);
 		getCz(czs);
-		modelmap.put("index", index);
-		modelmap.put("total", total);
+//		modelmap.put("index", index);
+//		modelmap.put("total", total);
 		modelmap.put("czs", czs);
 		return "/qt/czgl";
 	}
