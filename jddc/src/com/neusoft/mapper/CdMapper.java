@@ -25,5 +25,7 @@ public interface CdMapper {
 	List<Cd> selectCdByCl(String clid);
 	
 	List<Cd> findMoByCdmc(@Param("cdmc")String cdmc);
+
+	int countCdByCl(@Param("clid") String clid);
 	
 }

@@ -14,6 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.neusoft.mapper.CdMapper;
 import com.neusoft.mapper.UserMapper;
 import com.neusoft.service.IClService;
 import com.neusoft.vo.Cl;
@@ -24,6 +25,8 @@ public class ClController {
 
 	@Autowired
 	IClService iClService;
+	@Autowired
+	CdMapper cdMapper;
 
 	@RequestMapping(params = "listCl")
 	public String listCl(Integer index, ModelMap modelmap) {
@@ -79,7 +82,12 @@ public class ClController {
 
 	@RequestMapping(params = "deleteCl")
 	public String deleteCl(String cid, ModelMap modelmap) {
+		int count1 = cdMapper.countCdByCl(cid);
+		
+		if(count1 > 0) return "no";
 		int count = iClService.deleteCl(cid);
+		
+		
 		if (count > 0) {
 			return "redirect:cl.do?listCl";
 		} else {

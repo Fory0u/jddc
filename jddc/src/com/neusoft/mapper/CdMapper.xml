@@ -51,6 +51,16 @@
 			</if>
 		</where>
 	</select>
+	<select id="countCdByCl" resultType="int">
+		SELECT count(1) FROM t_cd 
+		<where>
+			<if test="clid != null and clid.length()>0">
+				and c_cl = #{clid}
+			</if>
+		</where>
+	</select>
+	
+	
 	<select id="selectDdzt" resultType="String" parameterType="String">
 		SELECT c_mc FROM t_dzdm WHERE n_bh = 10004 and n_bh_lx = #{ddzt}
 	</select>
