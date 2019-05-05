@@ -6,9 +6,10 @@
    		<result column="c_cdmc" property="CCdmc" jdbcType="VARCHAR" />
    		<result column="f_jg" property="FJg" jdbcType="FLOAT" />
    		<result column="c_cl" property="CCl" jdbcType="VARCHAR" />
+   		<result column="c_photo" property="CPhoto" jdbcType="VARCHAR" />
 	</resultMap>
 	<select id="getCdById" parameterType="String" resultMap="BaseResultMap">
-		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl`,c_photo FROM t_cd
 		<where>
 			<if test="cid != null and cid.length()>0">
 				and c_id = #{cid}
@@ -16,11 +17,11 @@
 		</where>
 	</select>
 	<select id="findMoByCdmc" resultMap="BaseResultMap">
-		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd where c_cdmc like concat('%','${cdmc}','%')
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl`,c_photo FROM t_cd where c_cdmc like concat('%','${cdmc}','%')
 	</select>
 	
 	<select id="getAllCd" resultMap="BaseResultMap">
-		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl` FROM t_cd
+		SELECT `c_id`, `c_cdmc`, `f_jg`, `c_cl`,c_photo FROM t_cd
 		
 		<if test="map!=null and map.size()>0 and map.start != null and map.size != null">
 			limit #{map.start},#{map.size}
@@ -28,8 +29,8 @@
 	</select>
 	
 	<insert id="addCd" parameterType="map">
-		INSERT INTO `jddc`.`t_cd`(`c_id`, `c_cdmc`, `f_jg`, `c_cl`) 
-		VALUES (REPLACE(uuid(),'-',''), #{map.cdmc}, #{map.jg,jdbcType=FLOAT}, #{map.cl})
+		INSERT INTO `jddc`.`t_cd`(`c_id`, `c_cdmc`, `f_jg`, `c_cl`,c_photo) 
+		VALUES (REPLACE(uuid(),'-',''), #{map.cdmc}, #{map.jg,jdbcType=FLOAT}, #{map.cl},#{map.photo})
 	</insert>
 	<delete id="deleteCd" parameterType="String" >
 		delete from t_cd
@@ -40,7 +41,7 @@
 		</where>
 	</delete>
 	<update id="editCd" parameterType="map">
-		UPDATE `jddc`.`t_cd` SET `c_cdmc` =  #{map.cdmc}, `f_jg` =  #{map.jg,jdbcType=FLOAT}, `c_cl` =#{map.cl}
+		UPDATE `jddc`.`t_cd` SET `c_cdmc` =  #{map.cdmc}, `f_jg` =  #{map.jg,jdbcType=FLOAT}, `c_cl` =#{map.cl} ,c_photo = #{map.photo}
 		WHERE `c_id` =  #{map.cid}
 	</update>
 	<select id="queryCount" resultType="int">
@@ -71,7 +72,8 @@
 		t_cd.c_id,
 		t_cd.c_cdmc,
 		t_cd.f_jg,
-		t_cd.c_cl
+		t_cd.c_cl,
+		t_cd.c_photo
 		FROM
 		t_cd ,
 		t_cl

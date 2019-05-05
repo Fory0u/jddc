@@ -9,12 +9,21 @@ public class Cd {
 	private String CCdmc;// 菜名
 	private float FJg;// 价格
 	private String CCl;// 菜类
+	private String CPhoto;//图片
+	
+
 
 	public Cd() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public String getCPhoto() {
+		return CPhoto;
+	}
 
+	public void setCPhoto(String cPhoto) {
+		CPhoto = cPhoto;
+	}
 	public String getCId() {
 		return CId;
 	}

@@ -40,8 +40,8 @@
 		<property name="basePackage" value="com.neusoft.mapper"></property> 
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
-
-
+	
+	
 
 
 </beans>

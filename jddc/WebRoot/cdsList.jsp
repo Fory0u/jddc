@@ -80,6 +80,9 @@
 							<th width="120">
 								所属菜系
 							</th>
+							<th width="120">
+								图片
+							</th>
 							<th width="100">
 								操作
 							</th>
@@ -100,6 +103,9 @@
 								<td >
 									${s.CCl}
 								</td>
+								<th width="120">
+									${s.CPhoto}
+								</th>
 								<td class="td-manage">
 									<a title="编辑" href="#"  onclick=" admin_edit('菜单编辑','${pageContext.request.contextPath}/cd.do?detailCd&cid=${s.CId}','1','600','500') " class="ml-5" style="text-decoration: none;">
 										<i class="Hui-iconfont">&#xe6df;</i>

@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
+
 <c:import url="head.jsp"></c:import>
     <div class="container ">
         <div class="row">
@@ -34,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<c:forEach items="${cds}" var="cd" >
             		<div class="col-sm-6 col-md-4">
 	                     <div class="thumbnail">
-	                        <img src="<%=path%>/qt/img/点心小吃/南瓜饼.jpg" style="height: 200px; width: 100%; display: block;" />
+	                        <img src="<%=path%>/upload/${cd.CPhoto}" style="height: 200px; width: 100%; display: block;" />
 	                        <div class="caption">
 	                            <h3 class="cdmc">${cd.CCdmc}</h3>
 	                            <p class="money">价格：${cd.FJg}元</p>

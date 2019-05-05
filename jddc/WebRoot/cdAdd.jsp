@@ -24,7 +24,7 @@
 </head>
 <body>
 <article class="page-container">
-	<form class="form form-horizontal" id="form-admin-add" action="cd.do?addCd" method="post"  target="_parent">
+	<form class="form form-horizontal" id="form-admin-add" action="cd.do?addCd" method="post"  target="_parent" enctype="multipart/form-data">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜名：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -38,7 +38,12 @@
 				<input type="number" class="input-text" step="0.01" required  placeholder="价格" id="jg" name="jg" style="width: 250px">
 			</div>
 		</div>
-	
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>图片：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="file"  required id="photo" name="photo" placeholder="图片" >
+			</div>
+		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜类：</label>
 			<div class="formControls col-xs-8 col-sm-9">

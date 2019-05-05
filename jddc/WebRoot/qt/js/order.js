@@ -4,6 +4,7 @@ var $cd;
 var $js ;
 var dcxx = "";
 var dcsl = "";
+var path  = window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1);
 $(function(){
 	$shopCat =  $('#cart_menus');
 	$cd = $(".thumbnail");
@@ -17,6 +18,7 @@ $(function(){
         	 console.log(rs);
          }
      })*/
+    
     $('.cls').on("click",function(){
     	$.ajax({
        	 type: "POST",
@@ -27,7 +29,7 @@ $(function(){
 					var obj = rs[i];
 					var cd = '<div class="col-sm-6 col-md-4">'+
 				                '<div class="thumbnail">'+
-				                    '<img src="qt/img/点心小吃/南瓜饼.jpg" style="height: 200px; width: 100%; display: block;" />'+
+				                    '<img src="'+path+'/upload/'+obj.CPhoto+'" style="height: 200px; width: 100%; display: block;" />'+
 				                    '<div class="caption">'+
 				                        '<h3 class="cdmc">'+obj.CCdmc+'</h3>'+
 				                        '<p class="money">价格：'+obj.FJg.toFixed(2)+'元</p>'+
@@ -66,7 +68,7 @@ $(function(){
     
 })
   function getHref(){
-	return  window.location.protocol + '//' + window.location.host +   window.location.pathname.substring(0, window.location.pathname.substring(1).indexOf('/')+1)+'/'
+	return  window.location.protocol + '//' + window.location.host +   path +'/'
 }
   function jiesuan (){
 //	 var json =  $.parseJSON($("#orderForm").serializeObject());

@@ -28,7 +28,7 @@
 <body>
 	<article class="page-container">
 		<form class="form form-horizontal" id="form-dish-edit"
-			action="cd.do?editCd" method="post" target="_parent">
+			action="cd.do?editCd" method="post" target="_parent" enctype="multipart/form-data">
 			<div class="row cl" style="display:none;">
 				<label class="form-label col-xs-4 col-sm-3">id：</label>
 				<div class="formControls col-xs-8 col-sm-9">
@@ -54,6 +54,15 @@
 				</div>
 			</div>
 
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-3"><span
+					class="c-red">*</span>图片：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="file" required id="photo"
+						name="photo" value="${cd.CPhoto}" style="width: 250px">
+				</div>
+			</div>
+			
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-3"><span
 					class="c-red">*</span>菜类：</label>
